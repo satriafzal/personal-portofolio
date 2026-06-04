@@ -1,0 +1,67 @@
+.about-section {
+    background-color: #120c1f;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.dynamic-heading {
+    font-size: 3.5rem;
+    letter-spacing: -0.5px;
+}
+
+.text-purple {
+    color: #9d7cff;
+}
+
+.cursor {
+    display: inline-block;
+    color: #ffffff;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.current-status {
+    letter-spacing: 0.5px;
+}
+
+.description-text {
+    font-weight: 300;
+    max-width: 800px;
+    color: #f8f9fa !important;
+    letter-spacing: 0.3px;
+}
+
+@media (max-width: 991px) {
+    .dynamic-heading {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .dynamic-heading {
+        font-size: 2rem;
+    }
+
+    .current-status {
+        font-size: 1.1rem !important;
+    }
+
+    .description-text {
+        font-size: 1rem !important;
+    }
+}

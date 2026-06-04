@@ -1,0 +1,123 @@
+/* Pastikan background hero tetap gelap */
+.hero-section {
+  background-color: #120c1f;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+}
+
+.hero-wrapper {
+  margin-top: -5vh; 
+}
+
+/* === STYLING UNTUK FRAME FOTO === */
+.photo-frame-container {
+  width: 380px;
+  height: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.glow-effect {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(110, 68, 255, 0.4) 0%, rgba(18, 12, 31, 0) 65%);
+  z-index: 1;
+}
+
+.photo-frame {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%; /* Bikin frame jadi bulat sempurna */
+  padding: 6px; /* Ketebalan bingkai */
+  background: linear-gradient(135deg, #9d7cff, #4a2b99); /* Warna bingkai gradasi ungu */
+  z-index: 2;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Biar foto lu gak gepeng */
+  border-radius: 50%; /* Harus bulat ngikutin frame */
+  background-color: #1a132b; 
+}
+/* ================================ */
+
+/* Posisi panah */
+.hello-pointer {
+  top: -40px;
+  right: -80px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.pointer-arrow {
+  margin-left: 10px;
+}
+
+.text-purple {
+  color: #9d7cff;
+}
+
+.main-title {
+  font-size: 4.8rem;
+  line-height: 1.1;
+  letter-spacing: -1px;
+}
+
+.circled-word {
+  color: #9d7cff;
+  position: relative;
+  display: inline-block;
+  padding: 0 15px;
+}
+
+.circled-word::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-3deg);
+  width: 110%;
+  height: 130%;
+  border: 3px solid #9d7cff;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+
+/* Responsif untuk Mobile */
+@media (max-width: 991px) {
+  .hero-wrapper {
+    margin-top: 2vh; /* Reset margin biar nggak terlalu mepet atas */
+  }
+
+  .photo-frame-container {
+    width: 250px; /* Dikecilin biar aman di layar sempit */
+    height: 250px;
+  }
+  
+  .photo-frame {
+    width: 230px;
+    height: 230px;
+  }
+  
+  .main-title {
+    font-size: 2.2rem; /* Ukuran diturunin dari 3rem ke 2.2rem biar muat satu baris */
+  }
+
+  .hello-pointer {
+    right: 0;
+    top: -35px;
+    align-items: center; /* Bikin teks hello-nya di tengah frame */
+  }
+
+  .pointer-arrow {
+    display: none; /* Panahnya kita sembunyiin di HP biar layarnya kelihatan bersih & gak sempit */
+  }
+}

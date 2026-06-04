@@ -1,0 +1,24 @@
+.custom-navbar {
+  background-color: #120c1f; 
+  padding: 1.2rem 0;
+}
+
+/* Styling untuk teks menu */
+.custom-navbar .nav-link {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7) !important;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+/* Efek saat menu di-hover atau aktif */
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active {
+  color: #ffffff !important;
+}
+
+/* Memastikan icon hamburger di mobile berwarna putih */
+.custom-toggler-icon {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
