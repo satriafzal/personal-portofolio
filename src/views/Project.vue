@@ -1,6 +1,6 @@
 <template>
-    <section class="projects-section py-5" id="projects">
-        <div class="container py-5">
+    <section class="projects-section pt-2 pb-5" id="projects" ref="projectsSection">
+        <div class="container">
 
             <div class="d-flex justify-content-between align-items-end mb-5">
                 <div>
@@ -45,10 +45,12 @@
                         </div>
 
                         <div class="project-info p-4">
-                            <h4 class="text-white fw-bold mb-3">EDU-REG Dashboard</h4>
+                            <h4 class="text-white fw-bold mb-3">Elevate Coffee Web</h4>
                             <p class="text-white-50 fs-6 mb-4">
-                                A comprehensive student and admin dashboard built with PHP, SQL, and responsive CSS.
-                                Features robust database management for educational administration.
+                                Membuat website Elevate Coffee menggunakan vue js dan golang, website ini menggunakan integration restful API,
+                                memiliki fitur autentikasi dan fitur belanja serta admin dashboard, di halaman admin bisa mengelola data user dan data menu,
+                                user atau konsumen bisa memilih menu sesuka hati dan melakukan pembayaran menu, tetapi sebelum user melakukan transaksi wajib login atau register
+                                unutuk menjelajahi halaman atau fitur lainnya  
                             </p>
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <div class="d-flex gap-2">
@@ -178,8 +180,46 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
+
+const projectsSection = ref(null);
+
+const centerSection = () => {
+    if (projectsSection.value) {
+        const element = projectsSection.value;
+        const elementRect = element.getBoundingClientRect();
+        const absoluteElementTop = elementRect.top + window.pageYOffset;
+        
+        const navbarHeight = 80;
+        
+        const targetPosition = absoluteElementTop - (window.innerHeight / 2) + (element.offsetHeight / 2) + (navbarHeight / 2);
+
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    }
+};
+
+const handleHashChange = () => {
+    if (window.location.hash === '#projects') {
+        setTimeout(centerSection, 100);
+    }
+};
+
+onMounted(() => {
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange, false);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('hashchange', handleHashChange);
+});
 </script>
 
 <style scoped>
     @import '@/assets/style/Project.css';
+    #projects {
+        scroll-margin-top: 100px;
+    }
 </style>

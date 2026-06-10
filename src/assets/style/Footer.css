@@ -1,0 +1,53 @@
+.footer-section {
+  background-color: #0b0714;
+}
+
+.text-purple {
+  color: #9d7cff;
+}
+
+.footer-btn {
+  background: transparent;
+  color: #9d7cff;
+  border: 1px solid rgba(157, 124, 255, 0.4);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.footer-btn:hover {
+  background: rgba(157, 124, 255, 0.15);
+  color: #ffffff;
+  border-color: #9d7cff;
+  transform: translateY(-2px);
+}
+
+.footer-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.footer-btn:hover svg {
+  transform: translateX(4px);
+}
+
+.footer-divider {
+  border-color: rgba(157, 124, 255, 0.15);
+  opacity: 1;
+}
+
+.social-icon {
+  color: #a09eb0;
+  transition: all 0.3s ease;
+  padding: 10px;
+  background: rgba(157, 124, 255, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon:hover {
+  color: #ffffff;
+  background: rgba(157, 124, 255, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(110, 68, 255, 0.2);
+}

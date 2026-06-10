@@ -3,7 +3,7 @@
         <div class="container h-100 d-flex align-items-center justify-content-center">
             <div class="d-flex flex-column flex-md-row align-items-center gap-5 gap-lg-5 hero-wrapper">
                 <div class="photo-frame-container position-relative">
-                    <div class="hello-pointer position-absolute">
+                    <div class="hello-pointer position-absolute" data-aos="fade-up">
                         <span class="text-white">Hello! I Am <span class="text-purple">Satria Afzal Zaydan</span></span>
                         <svg width="60" height="50" viewBox="0 0 50 40" class="pointer-arrow mt-1">
                             <path d="M40 5 Q 25 10 10 30" fill="none" stroke="#9d7cff" stroke-width="1.5"
@@ -15,12 +15,12 @@
 
                     <div class="glow-effect"></div>
 
-                    <div class="photo-frame">
+                    <div class="photo-frame" data-aos="fade-up">
                         <img src="/image/avatar2.png" alt="Satria Afzal Zaydan" class="profile-img" />
                     </div>
                 </div>
 
-                <div class="text-content w-100 text-center text-md-start mt-5 mt-md-0">
+                <div class="text-content w-100 text-center text-md-start mt-5 mt-md-0" data-aos="fade-left">
                     <p class="text-white mb-2 fw-light fs-5">A Developer who</p>
 
                     <h1 class="main-title fw-bold text-white mb-0">Judges a book</h1>

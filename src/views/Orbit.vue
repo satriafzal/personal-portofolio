@@ -1,5 +1,5 @@
 <template>
-    <section class="orbit-section py-5 overflow-hidden" id="orbit">
+    <section class="orbit-section py-5 overflow-hidden" id="orbit" data-aos="fade-in">
         <div class="container d-flex justify-content-center align-items-center h-100">
             <div class="orbit-wrapper">
 

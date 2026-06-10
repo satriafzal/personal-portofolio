@@ -6,6 +6,8 @@ import Skills from './views/Skills.vue';
 import Orbit from './views/Orbit.vue';
 import Project from './views/Project.vue';
 import Certificate from './views/Certificate.vue';
+import Contact from './views/Contact.vue';
+import Footer from './components/Footer.vue';
 </script>
 
 <template>
@@ -17,6 +19,8 @@ import Certificate from './views/Certificate.vue';
     <Orbit/>
     <Project/>
     <Certificate/>
+    <Contact/>
+    <Footer/>
   </div>
 </template>
 
