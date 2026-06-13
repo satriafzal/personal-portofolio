@@ -1,8 +1,8 @@
 <template>
-    <section class="projects-section pt-2 pb-5" id="projects" ref="projectsSection">
+    <section class="projects-section pt-2 pb-5" id="projects">
         <div class="container">
 
-            <div class="d-flex justify-content-between align-items-end mb-5">
+            <div class="d-flex justify-content-between align-items-end mb-5" v-anim="'fade-left'">
                 <div>
                     <p class="text-purple fw-semibold mb-2">My Portfolio</p>
                     <h2 class="text-white fw-bold mb-0">Selected Projects</h2>
@@ -11,7 +11,7 @@
 
             <div class="row g-4">
 
-                <div class="col-12 col-lg-4 col-md-6">
+                <div class="col-12 col-lg-4 col-md-6" v-anim="'fade-up'">
                     <div class="project-card h-100 rounded-4 overflow-hidden">
                         <div id="carouselEduReg" class="carousel slide project-carousel" data-bs-ride="false">
                             <div class="carousel-indicators">
@@ -47,10 +47,7 @@
                         <div class="project-info p-4">
                             <h4 class="text-white fw-bold mb-3">Elevate Coffee Web</h4>
                             <p class="text-white-50 fs-6 mb-4">
-                                Membuat website Elevate Coffee menggunakan vue js dan golang, website ini menggunakan integration restful API,
-                                memiliki fitur autentikasi dan fitur belanja serta admin dashboard, di halaman admin bisa mengelola data user dan data menu,
-                                user atau konsumen bisa memilih menu sesuka hati dan melakukan pembayaran menu, tetapi sebelum user melakukan transaksi wajib login atau register
-                                unutuk menjelajahi halaman atau fitur lainnya  
+                                A full-stack e-commerce web application for Elevate Coffee, engineered with Vue.js and Golang. Integrated via RESTful API, the platform features secure user authentication, a seamless shopping and checkout experience, and a dedicated Admin Dashboard for efficient management of user profiles and menu inventories
                             </p>
                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                 <div class="d-flex gap-2">
@@ -70,7 +67,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-lg-4 col-md-6">
+                <div class="col-12 col-lg-4 col-md-6" v-anim="'fade-up'">
                     <div class="project-card h-100 rounded-4 overflow-hidden">
                         <div id="carouselProfile" class="carousel slide project-carousel" data-bs-ride="false">
                             <div class="carousel-indicators">
@@ -122,7 +119,7 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-lg-4 col-md-6">
+                <div class="col-12 col-lg-4 col-md-6" v-anim="'fade-up'">
                     <div class="project-card h-100 rounded-4 overflow-hidden">
                         <div id="carouselKiosk" class="carousel slide project-carousel" data-bs-ride="false">
                             <div class="carousel-indicators">
@@ -180,46 +177,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-
-const projectsSection = ref(null);
-
-const centerSection = () => {
-    if (projectsSection.value) {
-        const element = projectsSection.value;
-        const elementRect = element.getBoundingClientRect();
-        const absoluteElementTop = elementRect.top + window.pageYOffset;
-        
-        const navbarHeight = 80;
-        
-        const targetPosition = absoluteElementTop - (window.innerHeight / 2) + (element.offsetHeight / 2) + (navbarHeight / 2);
-
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-        });
-    }
-};
-
-const handleHashChange = () => {
-    if (window.location.hash === '#projects') {
-        setTimeout(centerSection, 100);
-    }
-};
-
-onMounted(() => {
-    handleHashChange();
-    window.addEventListener('hashchange', handleHashChange, false);
-});
-
-onUnmounted(() => {
-    window.removeEventListener('hashchange', handleHashChange);
-});
 </script>
 
 <style scoped>
     @import '@/assets/style/Project.css';
+
     #projects {
-        scroll-margin-top: 100px;
+        scroll-margin-top: 80px;
     }
 </style>

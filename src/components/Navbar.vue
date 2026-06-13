@@ -2,14 +2,7 @@
     <nav class="navbar navbar-expand-lg custom-navbar">
         <div class="container">
 
-            <a class="navbar-brand text-white d-flex align-items-center" href="#">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 4H20M4 4L12 12L4 20M4 20H20" stroke="white" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-            </a>
-
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+            <button class="navbar-toggler border-0 shadow-none ms-auto" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNavCenter">
                 <span class="navbar-toggler-icon custom-toggler-icon"></span>
             </button>
@@ -45,4 +38,32 @@
 
 <style scoped>
     @import '@/assets/style/Navbar.css';
+
+    .nav-link {
+        position: relative;
+        display: inline-block;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 2px;
+        left: 0;
+        background-color: #9d7cff;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        transform: scaleX(1);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        color: #9d7cff !important;
+    }
 </style>

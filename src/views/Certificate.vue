@@ -3,7 +3,7 @@
     <div class="container py-5">
       
       <div class="d-flex justify-content-between align-items-end mb-5">
-        <div>
+        <div v-anim="'fade-left'">
           <p class="text-purple fw-semibold mb-2">My Achievements</p>
           <h2 class="text-white fw-bold mb-0">Certificates</h2>
         </div>
@@ -11,7 +11,7 @@
 
       <div class="row g-4">
         
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
           <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
             <div class="cert-img-wrapper">
               <img src="/image/certif1.png" alt="DevFest Jakarta 2025" class="w-100 h-100 object-fit-cover">
@@ -20,7 +20,7 @@
               <h4 class="text-white fw-bold mb-2">Intermediate Assistant Web Developer</h4>
               <p class="text-purple mb-3 fs-6">Kementrian Komunikasi Dan Digital</p>
               <p class="text-white-50 fs-6 mb-4">
-                Participant in the DevFest Jakarta technology conference, exploring the latest in web development and Google technologies.
+                Completed intermediate-level training from the Ministry of Communication and Digital. Mastered the implementation of modern web technologies, full-stack architecture, and best practices in building responsive, scalable applications
               </p>
               <button @click="openModal('/image/certif1.png')" class="cert-link mt-auto d-inline-flex align-items-center gap-2 border-0 bg-transparent p-0 text-start">
                 View
@@ -30,7 +30,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
           <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
             <div class="cert-img-wrapper">
               <img src="/image/certif2.png" alt="Offline Masterclass" class="w-100 h-100 object-fit-cover">
@@ -39,7 +39,7 @@
               <h4 class="text-white fw-bold mb-2">Fundamentals Assistant Web Developer</h4>
               <p class="text-purple mb-3 fs-6">Kementrian Komunikasi Dan Digital</p>
               <p class="text-white-50 fs-6 mb-4">
-                Completed the intensive offline masterclass focusing on modern tech industry practices and advanced development workflows.
+                Mastered the fundamentals of web programming through the comprehensive Digital Talent Academy program. Acquired a strong understanding of core web languages and industry-standard software engineering methodologies
               </p>
               <button @click="openModal('/image/certif2.png')" class="cert-link mt-auto d-inline-flex align-items-center gap-2 border-0 bg-transparent p-0 text-start">
                 View
@@ -49,7 +49,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
           <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
             <div class="cert-img-wrapper">
               <img src="/image/certif3.png" alt="Google Student Ambassador" class="w-100 h-100 object-fit-cover">
@@ -58,7 +58,7 @@
               <h4 class="text-white fw-bold mb-2">Belajar Dasar AI</h4>
               <p class="text-purple mb-3 fs-6">Dicoding Academy</p>
               <p class="text-white-50 fs-6 mb-4">
-                Selected participant for the Google Student Ambassador program, demonstrating leadership and technical proficiency.
+                Achieved competency graduation from Dicoding Academy. Understood the fundamental concepts of Artificial Intelligence, machine learning, and data processing basics to analyze modern AI technological case studies
               </p>
               <button @click="openModal('/image/certif3.png')" class="cert-link mt-auto d-inline-flex align-items-center gap-2 border-0 bg-transparent p-0 text-start">
                 View
@@ -68,16 +68,16 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
           <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
             <div class="cert-img-wrapper">
               <img src="/image/google.png" alt="Google Student Ambassador" class="w-100 h-100 object-fit-cover">
             </div>
             <div class="p-4 d-flex flex-column flex-grow-1">
-              <h4 class="text-white fw-bold mb-2">Transforming Education Through AI: Innovation and Collaboration for a Digital Future</h4>
+              <h4 class="text-white fw-bold mb-2">Transforming Education Through AI,Innovation and Collaboration for a Digital Future</h4>
               <p class="text-purple mb-3 fs-6">Google Developer Groups Community UNM</p>
               <p class="text-white-50 fs-6 mb-4">
-                Selected participant for the Google Student Ambassador program, demonstrating leadership and technical proficiency.
+                Active participant in the Tech Talk hosted by Google Developer Groups (GDG) on Campus. Gained valuable insights into Artificial Intelligence innovations and digital collaboration to transform the future of education
               </p>
               <button @click="openModal('/image/google.png')" class="cert-link mt-auto d-inline-flex align-items-center gap-2 border-0 bg-transparent p-0 text-start">
                 View
@@ -87,7 +87,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
           <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
             <div class="cert-img-wrapper">
               <img src="/image/cisco.png" alt="Google Student Ambassador" class="w-100 h-100 object-fit-cover">
@@ -96,7 +96,7 @@
               <h4 class="text-white fw-bold mb-2">Cisco Certificate Network</h4>
               <p class="text-purple mb-3 fs-6">CISCO</p>
               <p class="text-white-50 fs-6 mb-4">
-                Selected participant for the Google Student Ambassador program, demonstrating leadership and technical proficiency.
+                Completed the foundational network infrastructure certification program from Cisco Networking Academy. Acquired practical skills in utilizing Cisco Packet Tracer to design, configure, and simulate computer network architectures
               </p>
               <button @click="openModal('/image/cisco.png')" class="cert-link mt-auto d-inline-flex align-items-center gap-2 border-0 bg-transparent p-0 text-start">
                 View
@@ -106,16 +106,16 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
           <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
             <div class="cert-img-wrapper">
               <img src="/image/dicoding.png" alt="Google Student Ambassador" class="w-100 h-100 object-fit-cover">
             </div>
             <div class="p-4 d-flex flex-column flex-grow-1">
-              <h4 class="text-white fw-bold mb-2">IDCAMP x Dicoding Certificate</h4>
+              <h4 class="text-white fw-bold mb-2">IDCAMP x Dicoding</h4>
               <p class="text-purple mb-3 fs-6">Dicoding</p>
               <p class="text-white-50 fs-6 mb-4">
-                Selected participant for the Google Student Ambassador program, demonstrating leadership and technical proficiency.
+                Participated in the exclusive IDCamp x Dicoding program, focusing on mastering modern industry practices and accelerating professional career growth as a Full Stack Developer
               </p>
               <button @click="openModal('/image/dicoding.png')" class="cert-link mt-auto d-inline-flex align-items-center gap-2 border-0 bg-transparent p-0 text-start">
                 View

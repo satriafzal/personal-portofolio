@@ -1,9 +1,9 @@
 <template>
-    <section class="skills-section py-5" id="skills">
+    <section class="skills-section py-5 position-relative" id="skills" style="z-index: 999;">
         <div class="container">
-            <h2 class="text-white fw-bold mb-5 text-start" data-aos="fade-right">Personal Skills</h2>
+            <h2 class="text-white fw-bold mb-5 text-start" v-anim="'fade-right'">Personal Skills</h2>
 
-            <div class="d-flex justify-content-center flex-wrap gap-3 gap-md-4 mb-4" data-aos="fade-up">
+            <div class="d-flex justify-content-center flex-wrap gap-3 gap-md-4 mb-4" v-anim="'fade-up'">
                 <div class="skill-icon-wrapper">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg"
                         alt="Vue.js">
@@ -21,11 +21,11 @@
                 </div>
                 <div class="skill-icon-wrapper">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
-                        alt="github">
+                        alt="github" class="git-icon">
                 </div>
             </div>
 
-            <div class="d-flex justify-content-center flex-wrap gap-3 gap-md-4" data-aos="fade-up">
+            <div class="d-flex justify-content-center flex-wrap gap-3 gap-md-4" v-anim="'fade-up'">
                 <div class="skill-icon-wrapper">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
                         alt="HTML5">
@@ -49,4 +49,16 @@
 
 <style scoped>
     @import '@/assets/style/Skills.css';
+
+    .git-icon {
+        filter: invert(1) brightness(2);
+    }
+
+    @media (max-width: 767.98px) {
+        .skills-section {
+            padding-bottom: 2rem !important;
+            position: relative;
+            z-index: 10;
+        }
+    }
 </style>

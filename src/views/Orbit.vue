@@ -1,5 +1,5 @@
 <template>
-    <section class="orbit-section py-5 overflow-hidden" id="orbit" data-aos="fade-in">
+    <section class="orbit-section py-5 overflow-hidden" id="orbit" v-anim="'fade-in'">
         <div class="container d-flex justify-content-center align-items-center h-100">
             <div class="orbit-wrapper">
 
@@ -35,4 +35,15 @@
 
 <style scoped>
     @import '@/assets/style/Orbit.css';
+
+    @media (max-width: 767.98px) {
+        .orbit-section {
+            margin-top: 0;
+            padding-top: 2rem !important;
+        }
+        
+        .orbit-wrapper {
+            flex-shrink: 0;
+        }
+    }
 </style>

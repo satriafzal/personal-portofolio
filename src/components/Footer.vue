@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="col-12 col-md-4 mb-3 mb-md-0 d-flex justify-content-center gap-3">
-                    <a href="#" class="social-icon" target="_blank" aria-label="GitHub">
+                    <a href="https://github.com/satriafzal" class="social-icon" target="_blank" aria-label="GitHub">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path
