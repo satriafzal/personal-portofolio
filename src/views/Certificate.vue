@@ -125,6 +125,44 @@
           </div>
         </div>
 
+        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
+          <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
+            <div class="cert-img-wrapper">
+              <img src="/image/kominfo.png" alt="Google Student Ambassador" class="w-100 h-100 object-fit-cover">
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <h4 class="text-white fw-bold mb-2">Literasi Digital</h4>
+              <p class="text-purple mb-3 fs-6">Kementrian Komunikasi Dan Informatika</p>
+              <p class="text-white-50 fs-6 mb-4">
+                Active participant in the Digital Literacy program hosted by the Ministry of Communication and Information Technology. Gained crucial insights into safe internet practices, focusing on cyber awareness and strategies to protect families and communities from the risks of online gambling and illegal online loans
+              </p>
+              <button @click="openModal('/image/kominfo.png')" class="cert-link mt-auto d-inline-flex align-items-center gap-2 border-0 bg-transparent p-0 text-start">
+                View
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
+          <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
+            <div class="cert-img-wrapper">
+              <img src="/image/dilesin.png" alt="Google Student Ambassador" class="w-100 h-100 object-fit-cover">
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <h4 class="text-white fw-bold mb-2">Bootcamp C++</h4>
+              <p class="text-purple mb-3 fs-6">Dilesin</p>
+              <p class="text-white-50 fs-6 mb-4">
+                Active participant in the intensive C++ Programming Bootcamp (Batch 5) hosted by Dilesin Academy. Successfully completed a total of 10 comprehensive sessions, building a solid foundation in core programming concepts, structural logic, object-oriented programming (OOP) principles, and algorithmic problem-solving using C++
+              </p>
+              <button @click="openModal('/image/dilesin.png')" class="cert-link mt-auto d-inline-flex align-items-center gap-2 border-0 bg-transparent p-0 text-start">
+                View
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
