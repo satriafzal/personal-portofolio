@@ -13,12 +13,14 @@
 
                 <div class="col-12 col-lg-4 col-md-6" v-anim="'fade-up'">
                     <div class="project-card h-100 rounded-4 overflow-hidden">
-                        <div id="carouselEduReg" class="carousel slide project-carousel" data-bs-ride="false">
+                        <div id="carouselElevate" class="carousel slide project-carousel" data-bs-ride="false">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselEduReg" data-bs-slide-to="0"
                                     class="active"></button>
                                 <button type="button" data-bs-target="#carouselEduReg" data-bs-slide-to="1"></button>
                                 <button type="button" data-bs-target="#carouselEduReg" data-bs-slide-to="2"></button>
+                                <button type="button" data-bs-target="#carouselEduReg" data-bs-slide-to="3"></button>
+                                <button type="button" data-bs-target="#carouselEduReg" data-bs-slide-to="4"></button>
                             </div>
                             <div class="carousel-inner h-100">
                                 <div class="carousel-item active h-100">
@@ -31,6 +33,14 @@
                                 </div>
                                 <div class="carousel-item h-100">
                                     <img src="/image/fasilitas.png"
+                                        class="d-block w-100 h-100 object-fit-cover" alt="Edu Reg 3">
+                                </div>
+                                <div class="carousel-item h-100">
+                                    <img src="/image/menucafe.png"
+                                        class="d-block w-100 h-100 object-fit-cover" alt="Edu Reg 3">
+                                </div>
+                                <div class="carousel-item h-100">
+                                    <img src="/image/promocafe.png"
                                         class="d-block w-100 h-100 object-fit-cover" alt="Edu Reg 3">
                                 </div>
                             </div>
@@ -54,7 +64,7 @@
                                     <span class="tech-badge">Vue js</span>
                                     <span class="tech-badge">Golang</span>
                                 </div>
-                                <a href="#" class="icon-link">
+                                <a href="https://elevate-coffee-92bb1.web.app" class="icon-link">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4c6ff"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
