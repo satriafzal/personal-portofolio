@@ -14,7 +14,7 @@
                     </div>
                     <div class="glow-effect"></div>
                     <div class="photo-frame">
-                        <img src="/image/profil2.jpeg" alt="Satria Afzal Zaydan" class="profile-img" v-anim="'fade-in'" />
+                        <img src="/image/profil.jpeg" alt="Satria Afzal Zaydan" class="profile-img" v-anim="'fade-in'" />
                     </div>
                 </div>
                 <div class="text-content w-100 text-center text-md-start mt-5 mt-md-0" v-anim="'fade-left'">
@@ -70,12 +70,40 @@
     @media (max-width: 767.98px) {
         .hero-section {
             min-height: 100dvh;
-            padding-top: 80px;
+            padding-top: 80px; 
             display: flex;
             align-items: center;
         }
         .hero-wrapper {
             margin-top: 0 !important; 
+            flex-direction: column; /* Pastiin numpuk ke bawah */
+        }
+
+        .photo-frame {
+            width: 250px !important;
+            height: 250px !important;
+            flex-shrink: 0; /* Rahasia anti gepeng */
+            margin: 0 auto;
+        }
+
+        .hello-pointer {
+            position: absolute !important;
+            top: -90px;
+            left: 50%;
+            transform: translateX(-50%); 
+            width: max-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 10;
+        }
+
+        /* 3. Arahin Panah Pas ke Kepala */
+        .pointer-arrow {
+            display: block !important;
+            margin-top: 5px;
+            /* Kita rotasi panahnya biar nembak pas ke bawah (ke arah foto) */
+            transform: rotate(20deg) scale(0.8) scaleX(-1); 
         }
     }
 </style>
