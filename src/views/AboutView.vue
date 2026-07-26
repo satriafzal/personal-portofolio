@@ -23,7 +23,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 
-const words = ["Full-Stack Developer", "Frontend Developer", "Software Engineer"]
+const words = ["Full-Stack Developer", "Frontend Developer", "Web Development"]
 const displayText = ref('')
 const isDeleting = ref(false)
 let wordIndex = 0
