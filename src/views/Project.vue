@@ -27,7 +27,7 @@
                                 <span v-for="tech in project.tech" :key="tech" class="tech-badge">{{ tech }}</span>
                             </div>
                             
-                            <button @click="openModal(project)" class="cert-link text-purple mt-auto d-inline-flex align-items-center gap-2 border-0 bg-transparent p-0 text-start">
+                            <button @click="openModal(project)" class="cert-link mt-auto d-inline-flex align-items-center gap-2 border-0 bg-transparent p-0 text-start">
                                 View Project
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                             </button>
@@ -112,28 +112,30 @@ const projects = [
             "/image/menucafe.png", 
             "/image/promocafe.png"
         ],
-        tech: ["Vue.js", "Golang"]
+        tech: ["Vue Js", "Golang"]
     },
     {
         id: 3,
-        title: "Modern Company Profile",
-        desc: "A static company profile website sliced from a Figma UI/UX design into VS Code. Built to be fully responsive and visually appealing.",
+        title: "ECO PULSE Weather & AQI Tracker",
+        desc: "A real-time weather forecasting and air quality monitoring platform. Built with a robust full-stack architecture utilizing Vue.js and Laravel. The application seamlessly integrates multiple public APIs—including BMKG, IQAir, and OpenWeather—to deliver highly accurate environmental data. Featuring a modern dark mode interface and a comprehensive admin dashboard for system and data monitoring.",
         images: [
-            "https://via.placeholder.com/600x400/1a132b/9d7cff?text=Company+Profile+1", 
-            "https://via.placeholder.com/600x400/1a132b/9d7cff?text=Company+Profile+2"
+            "/image/eco1.jpeg",
+            "/image/eco2.jpeg",
+            "/image/eco3.jpeg",
+            "/image/eco4.jpeg",
+            "/image/eco5.jpeg",
+            "/image/eco6.jpeg",
+            "/image/eco7.jpeg",
+            "/image/eco8.jpeg",
+            "/image/eco9.jpeg",
+            "/image/eco10.jpeg",
+            "/image/eco11.jpeg",
+            "/image/eco12.jpeg",
+            "/image/eco13.jpeg",
+            "/image/eco14.jpeg",
         ],
-        tech: ["Vue.js", "Figma"]
+        tech: ["Vue Js", "Laravel", "Tailwind CSS"]
     },
-    {
-        id: 4,
-        title: "Self-Service Ordering",
-        desc: "An object-oriented Java application featuring a GUI and database integration. Simulates a kiosk ordering system similar to fast-food restaurants.",
-        images: [
-            "https://via.placeholder.com/600x400/1a132b/9d7cff?text=Ordering+App+1", 
-            "https://via.placeholder.com/600x400/1a132b/9d7cff?text=Ordering+App+2"
-        ],
-        tech: ["Java", "GUI"]
-    }
 ]
 
 // --- MESIN MODAL ---
@@ -164,4 +166,28 @@ onUnmounted(() => { window.removeEventListener('keydown', handleEsc) })
 
 <style scoped>
     @import '@/assets/style/Project.css';
+
+    .project-card {
+        transition: all 0.3s ease-in-out;
+        border-top: 4px solid transparent;
+    }
+
+    .project-card:hover {
+        border-top: 4px solid #9d7cff;
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(157, 124, 255, 0.15);
+    }
+
+    .project-modal-close {
+        transition: all 0.4s ease-in-out !important;
+    }
+
+    .project-modal-close:hover {
+        background: #9d7cff !important;
+        transform: rotate(90deg) scale(1.1) !important;
+    }
+
+    .cert-link {
+        color: #d4c6ff;
+    }
 </style>
