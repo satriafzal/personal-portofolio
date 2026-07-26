@@ -3,7 +3,7 @@ import Navbar from './components/Navbar.vue';
 import Hero from './components/Hero.vue';
 import AboutView from './views/AboutView.vue';
 import Skills from './views/Skills.vue';
-import Orbit from './views/Orbit.vue';
+import Myjourney from './views/Myjourney.vue';
 import Project from './views/Project.vue';
 import Certificate from './views/Certificate.vue';
 import Contact from './views/Contact.vue';
@@ -15,8 +15,8 @@ import Footer from './components/Footer.vue';
     <Navbar />
     <Hero />
     <AboutView/>
+    <Myjourney/>
     <Skills/>
-    <Orbit/>
     <Project/>
     <Certificate/>
     <Contact/>
