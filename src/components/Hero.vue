@@ -1,7 +1,7 @@
 <template>
     <section class="hero-section">
         <div class="container h-100 d-flex align-items-center justify-content-center">
-            <div class="d-flex flex-column flex-md-row align-items-center gap-5 gap-lg-5 hero-wrapper">
+            <div class="d-flex flex-column flex-md-row align-items-center justify-content-lg-evenly gap-5 gap-lg-5 hero-wrapper w-100">
                 <div class="photo-frame-container position-relative" v-anim="'fade-up'">
                     <div class="hello-pointer position-absolute">
                         <span class="text-white">Hello! I Am <span class="text-purple">Satria Afzal Zaydan</span></span>
