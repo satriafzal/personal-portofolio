@@ -65,3 +65,56 @@
         font-size: 1rem !important;
     }
 }
+
+/* for laptop */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .dynamic-heading {
+        font-size: 2.8rem;
+    }
+
+    .photo-frame-container {
+        width: 320px;
+        height: 320px;
+    }
+
+    .photo-frame {
+        width: 270px;
+        height: 270px;
+    }
+
+    .main-title {
+        font-size: 3.5rem;
+    }
+
+    .hello-pointer {
+        right: -20px;
+        top: -20px;
+        transform: scale(0.9);
+    }
+
+    .hero-wrapper {
+        gap: 2rem !important;
+    }
+
+    .description-text {
+        font-size: 1.1rem !important;
+        line-height: 1.8;
+    }
+}
+
+/* for pc or computer */
+@media (min-width: 1200px) {
+    .dynamic-heading {
+        font-size: 4rem;
+    }
+
+    .current-status {
+        font-size: 1.3rem !important;
+    }
+
+    .description-text {
+        font-size: 1.25rem !important;
+        line-height: 2 !important;
+        max-width: 95%;
+    }
+}
