@@ -136,6 +136,34 @@ const projects = [
         ],
         tech: ["Vue Js", "Laravel", "Tailwind CSS"]
     },
+    {
+        id: 4,
+        title: "Smart Village Portal: Desa Cimulang",
+        desc: "A collaborative project developed under the supervision of a university lecturer and alongside a dedicated development team to drive rural digital transformation. Serving as the Backend Developer using Laravel, I contributed to engineering a robust information system for Desa Cimulang. The platform features comprehensive village profiling, a citizen corner (Pojok Warga), and a local potential gallery, seamlessly harmonizing nature's resources with modern technological solutions.",
+        images: [
+            "/image/desa1.jpeg",
+            "/image/desa2.jpeg",
+            "/image/desa3.jpeg",
+            "/image/desa4.jpeg",
+            "/image/desa5.jpeg",
+            "/image/desa6.jpeg",
+            "/image/desa7.jpeg",
+            "/image/desa8.jpeg",
+            "/image/desa9.jpeg",
+            "/image/desa10.jpeg",
+            "/image/desa11.jpeg",
+            "/image/desa12.jpeg",
+            "/image/desa13.jpeg",
+            "/image/desa14.jpeg",
+            "/image/desa15.jpeg",
+            "/image/desa16.jpeg",
+            "/image/desa17.jpeg",
+            "/image/desa18.jpeg",
+            "/image/desa19.jpeg",
+            "/image/desa20.jpeg",
+        ],
+        tech: ["Laravel"]
+    }
 ]
 
 // --- MESIN MODAL ---
