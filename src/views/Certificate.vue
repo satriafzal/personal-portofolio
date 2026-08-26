@@ -10,6 +10,27 @@
       </div>
 
       <div class="row g-4">
+
+        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
+          <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
+            <div class="cert-img-wrapper">
+              <img src="/image/dibimbing.jpeg" alt="DevFest Jakarta 2025" class="w-100 h-100 object-fit-cover">
+            </div>
+            <div class="p-4 d-flex flex-column flex-grow-1">
+              <h4 class="text-white fw-bold mb-2">Quality Assurance (QA) Testing Certificate</h4>
+              <p class="text-purple mb-3 fs-6">Dibimbing</p>
+              <p class="text-white-50 fs-6 mb-4">
+                Thrilled to share a new milestone! 🎓
+              Today, I received my Quality Assurance certificate from an insightful session hosted by @dibimbing.id.
+              As someone accustomed to using Java for building application logic and features, diving into Automation Testing provided a completely refreshing perspective.
+              </p>
+              <button @click="openModal('/image/dibimbing.jpeg')" class="cert-link mt-auto d-inline-flex align-items-center gap-2 border-0 bg-transparent p-0 text-start">
+                View
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              </button>
+            </div>
+          </div>
+        </div>
         
         <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
           <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
