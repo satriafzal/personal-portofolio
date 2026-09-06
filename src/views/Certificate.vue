@@ -2,7 +2,7 @@
   <section class="certificates-section py-5" id="certificates">
     <div class="container py-5">
       
-      <div class="d-flex justify-content-between align-items-end mb-5">
+      <div class="d-flex justify-content-between align-items-end mb-5" data-aos="fade-right">
         <div v-anim="'fade-left'">
           <p class="text-purple fw-semibold mb-2">My Achievements</p>
           <h2 class="text-white fw-bold mb-0">Certificates</h2>
@@ -11,7 +11,7 @@
 
       <div class="row g-4">
 
-        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
           <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
             <div class="cert-img-wrapper">
               <img src="/image/dibimbing.jpeg" alt="DevFest Jakarta 2025" class="w-100 h-100 object-fit-cover">
@@ -32,7 +32,7 @@
           </div>
         </div>
         
-        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
           <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
             <div class="cert-img-wrapper">
               <img src="/image/certif1.png" alt="DevFest Jakarta 2025" class="w-100 h-100 object-fit-cover">
@@ -51,7 +51,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
           <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
             <div class="cert-img-wrapper">
               <img src="/image/certif2.png" alt="Offline Masterclass" class="w-100 h-100 object-fit-cover">
@@ -70,7 +70,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
           <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
             <div class="cert-img-wrapper">
               <img src="/image/certif3.png" alt="Google Student Ambassador" class="w-100 h-100 object-fit-cover">
@@ -89,7 +89,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
           <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
             <div class="cert-img-wrapper">
               <img src="/image/google.png" alt="Google Student Ambassador" class="w-100 h-100 object-fit-cover">
@@ -108,7 +108,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
           <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
             <div class="cert-img-wrapper">
               <img src="/image/cisco.png" alt="Google Student Ambassador" class="w-100 h-100 object-fit-cover">
@@ -127,7 +127,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
           <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
             <div class="cert-img-wrapper">
               <img src="/image/dicoding.png" alt="Google Student Ambassador" class="w-100 h-100 object-fit-cover">
@@ -146,7 +146,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
           <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
             <div class="cert-img-wrapper">
               <img src="/image/kominfo.png" alt="Google Student Ambassador" class="w-100 h-100 object-fit-cover">
@@ -165,7 +165,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4" v-anim="'fade-up'">
+        <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
           <div class="cert-card d-flex flex-column h-100 rounded-4 overflow-hidden">
             <div class="cert-img-wrapper">
               <img src="/image/dilesin.png" alt="Google Student Ambassador" class="w-100 h-100 object-fit-cover">
