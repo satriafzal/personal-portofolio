@@ -2,7 +2,7 @@
     <section class="hero-section">
         <div class="container h-100 d-flex align-items-center justify-content-center">
             <div class="d-flex flex-column flex-md-row align-items-center justify-content-lg-evenly gap-5 gap-lg-5 hero-wrapper w-100">
-                <div class="photo-frame-container position-relative" v-anim="'fade-up'">
+                <div class="photo-frame-container position-relative" data-aos="fade-right">
                     <div class="hello-pointer position-absolute">
                         <span class="text-white">Hello! I Am <span class="text-purple">Satria Afzal Zaydan</span></span>
                         <svg width="60" height="50" viewBox="0 0 50 40" class="pointer-arrow mt-1">
@@ -14,10 +14,10 @@
                     </div>
                     <div class="glow-effect"></div>
                     <div class="photo-frame">
-                        <img src="/image/profil.jpeg" alt="Satria Afzal Zaydan" class="profile-img" v-anim="'fade-in'" />
+                        <img src="/image/profil.jpeg" alt="Satria Afzal Zaydan" class="profile-img"/>
                     </div>
                 </div>
-                <div class="text-content w-100 text-center text-md-start mt-5 mt-md-0" v-anim="'fade-left'">
+                <div class="text-content w-100 text-center text-md-start mt-5 mt-md-0" data-aos="fade-up">
                     <p class="text-white mb-2 fw-light fs-5">A Developer who</p>
                     <h1 class="main-title fw-bold text-white mb-0">Don't Judges a book</h1>
                     <h1
@@ -38,6 +38,12 @@
 
 <style scoped>
     @import '@/assets/style/Hero.css';
+
+    .hero-section {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
 
     .photo-frame {
         position: relative;
