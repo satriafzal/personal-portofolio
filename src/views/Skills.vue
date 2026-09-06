@@ -2,7 +2,7 @@
     <section class="skills-section py-5 position-relative" id="skills" style="z-index: 999;">
         <div class="container">
             
-            <div class="d-flex justify-content-between align-items-end mb-5" v-anim="'fade-left'">
+            <div class="d-flex justify-content-between align-items-end mb-5" data-aos="fade-right">
                 <div>
                     <p class="text-purple fw-semibold mb-2">My Expertise</p>
                     <h2 class="text-white fw-bold mb-0">Personal Skills</h2>
@@ -12,7 +12,7 @@
             <div class="row g-4">
                 
                 <!-- CARD FRONTEND -->
-                <div class="col-12 col-md-4" v-anim="'fade-up'">
+                <div class="col-12 col-md-4" data-aos="fade-up">
                     <div class="skill-category-card d-flex flex-column h-100 p-4 rounded-4">
                         <h4 class="text-white fw-bold mb-4 text-center border-bottom border-secondary pb-3">Frontend</h4>
                         <div class="d-flex justify-content-center flex-wrap gap-3 mt-auto mb-auto">
@@ -39,7 +39,7 @@
                 </div>
 
                 <!-- CARD BACKEND -->
-                <div class="col-12 col-md-4" v-anim="'fade-up'">
+                <div class="col-12 col-md-4" data-aos="fade-up">
                     <div class="skill-category-card d-flex flex-column h-100 p-4 rounded-4">
                         <h4 class="text-white fw-bold mb-4 text-center border-bottom border-secondary pb-3">Backend</h4>
                         <div class="d-flex justify-content-center flex-wrap gap-3 mt-auto mb-auto">
@@ -57,7 +57,7 @@
                 </div>
 
                 <!-- CARD TOOLS -->
-                <div class="col-12 col-md-4" v-anim="'fade-up'">
+                <div class="col-12 col-md-4" data-aos="fade-up">
                     <div class="skill-category-card d-flex flex-column h-100 p-4 rounded-4">
                         <h4 class="text-white fw-bold mb-4 text-center border-bottom border-secondary pb-3">Tools</h4>
                         <div class="d-flex justify-content-center flex-wrap gap-3 mt-auto mb-auto">
