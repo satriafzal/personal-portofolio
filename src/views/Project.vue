@@ -2,7 +2,7 @@
     <section class="projects-section pt-2 pb-5" id="projects">
         <div class="container">
 
-            <div class="d-flex justify-content-between align-items-end mb-5" v-anim="'fade-left'">
+            <div class="d-flex justify-content-between align-items-end mb-5" data-aos="fade-right">
                 <div>
                     <p class="text-purple fw-semibold mb-2">My Portfolio</p>
                     <h2 class="text-white fw-bold mb-0">Selected Projects</h2>
@@ -11,7 +11,7 @@
 
             <div class="row g-4">
                 <!-- Looping Otomatis Semua Project -->
-                <div v-for="project in projects" :key="project.id" class="col-12 col-lg-4 col-md-6" v-anim="'fade-up'">
+                <div v-for="project in projects" :key="project.id" class="col-12 col-lg-4 col-md-6" data-aos="fade-up">
                     <div class="project-card d-flex flex-column h-100 rounded-4 overflow-hidden">
                         <div class="cert-img-wrapper" style="height: 220px; overflow: hidden;">
                             <img :src="project.images[0]" :alt="project.title" class="w-100 h-100 object-fit-cover">
