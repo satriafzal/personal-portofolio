@@ -1,5 +1,5 @@
 <template>
-    <section class="contact-section py-5" id="contact" v-anim="'fade-in'">
+    <section class="contact-section py-5" id="contact" data-aos="fade-up">
         <div class="container py-5">
 
             <div class="row justify-content-center">
