@@ -6,30 +6,17 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap'
 import './assets/main.css'
 
+// aos js
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+
 const app = createApp(App)
 
-// for animation component
-app.directive('anim', {
-    mounted(el, binding) {
-        el.classList.add('manual-anim');
-        
-        const animType = binding.value || 'fade-up';
-        el.classList.add(`anim-${animType}`);
-
-        const observer = new IntersectionObserver((entries, observerInstance) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    el.classList.add('anim-show');
-                    observerInstance.unobserve(el);
-                }
-            });
-        }, { 
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        observer.observe(el);
-    }
+AOS.init({
+    duration: 800,     
+    easing: 'ease-out', 
+    once: true,        
+    offset: 50,        
 });
 
 app.use(router)
