@@ -44,7 +44,6 @@
 </template>
 
 <script setup>
-// Data Journey, lu bisa edit textnya sesuka hati di sini
 const journeyList = [
     {
         period: "2026 - Present",
@@ -94,11 +93,11 @@ const journeyList = [
     .journey-section {
         overflow-x: hidden;
         width: 100%;
-        position: relative; /* Wajib ditambahin biar overflow-x bisa ngurung efek AOS */
+        position: relative; 
     }
 
     .timeline-container {
-        padding-left: 10px; /* Sebelumnya lu lupa naruh titik koma di sini */
+        padding-left: 10px; 
         position: relative;
     }
 
