@@ -3,7 +3,7 @@
         <div class="container">
             
             <!-- Header Section -->
-            <div class="d-flex justify-content-between align-items-end mb-5" v-anim="'fade-left'">
+            <div class="d-flex justify-content-between align-items-end mb-5" data-aos="fade-right" data-aos-offset="0">
                 <div>
                     <p class="text-purple fw-semibold mb-2">My Path</p>
                     <h2 class="text-white fw-bold mb-0">My Journey</h2>
@@ -20,7 +20,7 @@
                     v-for="(item, index) in journeyList" 
                     :key="index" 
                     class="timeline-item position-relative mb-5" 
-                    v-anim="'fade-up'"
+                    data-aos="fade-up"
                 >
                     <!-- Titik Ungu di Garis -->
                     <div class="timeline-dot"></div>
@@ -80,12 +80,26 @@ const journeyList = [
 </script>
 
 <style scoped>
+
+    .journey-section, .timeline-container {
+        -ms-overflow-style: none;  /* Buat Edge/IE */
+        scrollbar-width: none;     /* Buat Firefox */
+    }
+
+    .journey-section::-webkit-scrollbar, 
+    .timeline-container::-webkit-scrollbar {
+    display: none;
+    }
+
     .journey-section {
         overflow-x: hidden;
+        width: 100%;
+        position: relative; /* Wajib ditambahin biar overflow-x bisa ngurung efek AOS */
     }
 
     .timeline-container {
-        padding-left: 10px
+        padding-left: 10px; /* Sebelumnya lu lupa naruh titik koma di sini */
+        position: relative;
     }
 
     .timeline-line {
