@@ -31,19 +31,19 @@ html, body {
   max-width: 100% !important;
   margin: 0;
   padding: 0;
-  background-color: #120c1f !important; /* Nah ini biang keroknya, wajib pakai !important */
+  background-color: #120c1f !important; 
 }
 
 #app {
   overflow-x: hidden !important;
   width: 100%;
   position: relative;
-  background-color: #120c1f !important; /* Sekalian kunci di sini */
+  background-color: #120c1f !important; 
 }
 
 .portfolio-wrapper {
   overflow-x: hidden !important;
   width: 100%;
-  background-color: #120c1f !important; /* Sama di sini */
+  background-color: #120c1f !important; 
 }
 </style>
