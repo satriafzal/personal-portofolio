@@ -1,77 +1,84 @@
 <template>
-    <section class="contact-section py-5" id="contact" data-aos="fade-up">
-        <div class="container py-5">
+    <section class="py-20 sm:py-28 relative z-20" id="contact" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-8 text-center mb-5">
-                    <p class="text-purple fw-semibold mb-2">Get In Touch</p>
-                    <h2 class="text-white fw-bold mb-3">Let's Collaborate</h2>
-                    <p class="text-white-50 fs-6">
-                        Have a project in mind or want to work together? Send me a message and I'll get back to you as
-                        soon as possible.
-                    </p>
-                </div>
+            <!-- Section Header -->
+            <div class="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
+                <p class="text-purple-400 font-semibold text-sm tracking-wider uppercase mb-2">
+                    Get In Touch
+                </p>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4">
+                    Let's Collaborate
+                </h2>
+                <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
+                    Have a project in mind or want to work together? Send me a message and I'll get back to you as soon
+                    as possible.
+                </p>
             </div>
 
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-8">
-                    <form action="https://formspree.io/f/xwvjknqr" method="POST"
-                        class="contact-form glass-panel p-4 p-md-5 rounded-4">
+            <!-- Contact Form Container -->
+            <div class="max-w-3xl mx-auto">
+                <form action="https://formspree.io/f/xwvjknqr" method="POST"
+                    class="bg-slate-900/60 border border-purple-500/10 rounded-2xl p-6 sm:p-10 backdrop-blur-md shadow-xl shadow-purple-500/5 hover:border-purple-500/20 transition-all duration-300">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="form-group text-start">
-                                    <label for="name" class="text-white-50 mb-2 fs-6">Your Name</label>
-                                    <input type="text" id="name" name="name" class="form-control custom-input" required
-                                        placeholder="enter your name">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-group text-start">
-                                    <label for="email" class="text-white-50 mb-2 fs-6">Email Address</label>
-                                    <input type="email" id="email" name="email" class="form-control custom-input"
-                                        required placeholder="enter yor email">
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="form-group text-start">
-                                    <label for="subject" class="text-white-50 mb-2 fs-6">Subject</label>
-                                    <input type="text" id="subject" name="subject" class="form-control custom-input"
-                                        required placeholder="enter your subject">
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="form-group text-start">
-                                    <label for="message" class="text-white-50 mb-2 fs-6">Message</label>
-                                    <textarea id="message" name="message" class="form-control custom-input" rows="5"
-                                        required placeholder="Tell me about your project..."></textarea>
-                                </div>
-                            </div>
-
-                            <div class="col-12 text-center mt-4">
-                                <button type="submit"
-                                    class="btn submit-btn px-5 py-3 fw-bold w-100 d-flex justify-content-center align-items-center gap-2">
-                                    Send Message
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="22" y1="2" x2="11" y2="13"></line>
-                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                                    </svg>
-                                </button>
-                            </div>
+                        <!-- Name Input -->
+                        <div class="flex flex-col text-left">
+                            <label for="name" class="text-slate-300 text-sm font-medium mb-2">
+                                Your Name
+                            </label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your name"
+                                class="w-full bg-slate-950/60 border border-purple-500/20 rounded-xl px-4 py-3 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-200" />
                         </div>
 
-                    </form>
-                </div>
+                        <!-- Email Input -->
+                        <div class="flex flex-col text-left">
+                            <label for="email" class="text-slate-300 text-sm font-medium mb-2">
+                                Email Address
+                            </label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email"
+                                class="w-full bg-slate-950/60 border border-purple-500/20 rounded-xl px-4 py-3 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-200" />
+                        </div>
+
+                        <!-- Subject Input -->
+                        <div class="md:col-span-2 flex flex-col text-left">
+                            <label for="subject" class="text-slate-300 text-sm font-medium mb-2">
+                                Subject
+                            </label>
+                            <input type="text" id="subject" name="subject" required placeholder="Enter your subject"
+                                class="w-full bg-slate-950/60 border border-purple-500/20 rounded-xl px-4 py-3 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-200" />
+                        </div>
+
+                        <!-- Message Textarea -->
+                        <div class="md:col-span-2 flex flex-col text-left">
+                            <label for="message" class="text-slate-300 text-sm font-medium mb-2">
+                                Message
+                            </label>
+                            <textarea id="message" name="message" rows="5" required
+                                placeholder="Tell me about your project..."
+                                class="w-full bg-slate-950/60 border border-purple-500/20 rounded-xl p-4 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-200 resize-none"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="md:col-span-2 mt-2">
+                            <button type="submit"
+                                class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold py-3.5 px-6 rounded-xl shadow-lg shadow-purple-600/25 flex items-center justify-center gap-2 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0">
+                                <span>Send Message</span>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                </svg>
+                            </button>
+                        </div>
+
+                    </div>
+                </form>
             </div>
 
         </div>
     </section>
 </template>
 
-<style scoped>
-    @import '@/assets/style/Contact.css';
-</style>
+<script setup>
+// Komponen murni form penampung tanpa logic berat
+</script>

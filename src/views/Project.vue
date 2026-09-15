@@ -1,86 +1,140 @@
 <template>
-    <section class="projects-section pt-2 pb-5" id="projects">
-        <div class="container">
+    <section class="py-20 sm:py-28 relative z-20" id="projects">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div class="d-flex justify-content-between align-items-end mb-5" data-aos="fade-right">
-                <div>
-                    <p class="text-purple fw-semibold mb-2">My Portfolio</p>
-                    <h2 class="text-white fw-bold mb-0">Selected Projects</h2>
-                </div>
+            <!-- Header Section -->
+            <div class="mb-12 sm:mb-16" data-aos="fade-right">
+                <p class="text-purple-400 font-semibold text-sm tracking-wider uppercase mb-1">
+                    My Portfolio
+                </p>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+                    Selected Projects
+                </h2>
             </div>
 
-            <div class="row g-4">
-                <!-- Looping Otomatis Semua Project -->
-                <div v-for="project in projects" :key="project.id" class="col-12 col-lg-4 col-md-6" data-aos="fade-up">
-                    <div class="project-card d-flex flex-column h-100 rounded-4 overflow-hidden">
-                        <div class="cert-img-wrapper" style="height: 220px; overflow: hidden;">
-                            <img :src="project.images[0]" :alt="project.title" class="w-100 h-100 object-fit-cover">
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <div v-for="project in projects" :key="project.id" data-aos="fade-up">
+                    <div
+                        class="h-full flex flex-col bg-slate-900/60 border border-purple-500/10 border-t-2 border-t-transparent hover:border-t-purple-500 hover:border-purple-500/30 rounded-2xl overflow-hidden backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/10 group">
+
+                        <!-- Thumbnail Gambar -->
+                        <div class="h-52 w-full overflow-hidden bg-slate-950">
+                            <img :src="project.images[0]" :alt="project.title"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                         </div>
-                        
-                        <div class="project-info p-4 d-flex flex-column flex-grow-1">
-                            <h4 class="text-white fw-bold mb-3">{{ project.title }}</h4>
-                            <p class="text-white-50 fs-6 mb-4 line-clamp-3">
+
+                        <!-- Project Content -->
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-white text-xl font-bold mb-3">
+                                {{ project.title }}
+                            </h3>
+
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3">
                                 {{ project.desc }}
                             </p>
 
-                            <div class="d-flex flex-wrap gap-2 mb-3">
-                                <span v-for="tech in project.tech" :key="tech" class="tech-badge">{{ tech }}</span>
+                            <!-- Tech Badges -->
+                            <div class="flex flex-wrap gap-2 mb-6 mt-auto">
+                                <span v-for="tech in project.tech" :key="tech"
+                                    class="bg-purple-500/10 text-purple-300 text-xs font-semibold px-3 py-1 rounded-full border border-purple-500/20">
+                                    {{ tech }}
+                                </span>
                             </div>
-                            
-                            <button @click="openModal(project)" class="cert-link mt-auto d-inline-flex align-items-center gap-2 border-0 bg-transparent p-0 text-start">
+
+                            <!-- View Project Button -->
+                            <button @click="openModal(project)"
+                                class="text-purple-300 hover:text-purple-200 text-sm font-semibold inline-flex items-center gap-2 transition-colors duration-200 self-start group/btn">
                                 View Project
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                                <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-200"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 12h14m-7-7l7 7-7 7"></path>
+                                </svg>
                             </button>
                         </div>
+
                     </div>
                 </div>
             </div>
+
         </div>
 
         <!-- MODAL PROJECT POPUP -->
-        <div v-if="isModalOpen" class="project-modal-overlay" @click="closeModal">
-            <button class="project-modal-close" @click.stop="closeModal">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-            </button>
-            
-            <div class="project-modal-content" @click.stop>
-                <!-- Carousel Gambar di Dalam Modal -->
-                <div id="modalCarousel" class="carousel slide h-50" data-bs-ride="false" v-if="activeProject.images.length > 1">
-                    <div class="carousel-indicators">
-                        <button v-for="(img, index) in activeProject.images" :key="index" type="button" data-bs-target="#modalCarousel" :data-bs-slide-to="index" :class="{ active: index === 0 }"></button>
+        <Teleport to="body">
+            <div v-if="isModalOpen"
+                class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md transition-opacity duration-300"
+                @click="closeModal">
+                <!-- Close Button -->
+                <button
+                    class="absolute top-4 right-4 z-20 p-2 bg-slate-800/80 text-white rounded-full hover:bg-purple-600 hover:rotate-90 transition-all duration-300"
+                    @click.stop="closeModal">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+
+                <!-- Modal Content Container -->
+                <div class="bg-slate-900 border border-purple-500/20 rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl shadow-purple-500/10"
+                    @click.stop>
+
+                    <!-- Image Slider / Viewer (Top Half) -->
+                    <div
+                        class="relative h-64 sm:h-96 bg-slate-950 flex items-center justify-center overflow-hidden shrink-0">
+                        <img :src="activeProject.images[currentImageIndex]"
+                            class="w-full h-full object-contain p-4 transition-all duration-300" alt="Project Showcase">
+
+                        <!-- Navigation Controls (If multiple images) -->
+                        <template v-if="activeProject.images.length > 1">
+                            <button @click="prevImage"
+                                class="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-slate-900/70 hover:bg-purple-600 text-white transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
+
+                            <button @click="nextImage"
+                                class="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-slate-900/70 hover:bg-purple-600 text-white transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+
+                            <!-- Indicators Dots -->
+                            <div
+                                class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 px-3 py-1 bg-slate-900/60 rounded-full backdrop-blur-sm">
+                                <button v-for="(_, index) in activeProject.images" :key="index"
+                                    @click="currentImageIndex = index"
+                                    class="w-2 h-2 rounded-full transition-all duration-300"
+                                    :class="currentImageIndex === index ? 'bg-purple-500 w-5' : 'bg-slate-500/50'"></button>
+                            </div>
+                        </template>
                     </div>
-                    
-                    <div class="carousel-inner h-100" style="background-color: #0a0514;">
-                        <div v-for="(img, index) in activeProject.images" :key="index" :class="['carousel-item h-100', { active: index === 0 }]">
-                            <img :src="img" class="d-block w-100 h-100" style="object-fit: contain; padding: 10px;" alt="Project Image">
+
+                    <!-- Info Details (Bottom Half - Scrollable) -->
+                    <div class="p-6 sm:p-8 overflow-y-auto space-y-4">
+                        <h3 class="text-2xl font-bold text-white">
+                            {{ activeProject.title }}
+                        </h3>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span v-for="tech in activeProject.tech" :key="tech"
+                                class="bg-purple-500/10 text-purple-300 text-xs font-semibold px-3 py-1 rounded-full border border-purple-500/20">
+                                {{ tech }}
+                            </span>
                         </div>
+
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            {{ activeProject.desc }}
+                        </p>
                     </div>
 
-                    <button class="carousel-control-prev" type="button" data-bs-target="#modalCarousel" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon"></span>
-                    </button>
-
-                    <button class="carousel-control-next" type="button" data-bs-target="#modalCarousel" data-bs-slide="next">
-                        <span class="carousel-control-next-icon"></span>
-                    </button>
-                </div>
-
-                <div v-else class="h-50 w-100 d-flex align-items-center justify-content-center" style="background-color: #0a0514;">
-                    <img :src="activeProject.images[0]" class="d-block w-100 h-100" style="object-fit: contain; padding: 10px;" alt="Project Image">
-                </div>
-
-                <!-- Info Deskripsi di Bawah Gambar -->
-                <div class="modal-info p-4 d-flex flex-column h-50 overflow-y-auto">
-                    <h3 class="text-white fw-bold mb-3">{{ activeProject.title }}</h3>
-                    <div class="d-flex flex-wrap gap-2 mb-4">
-                        <span v-for="tech in activeProject.tech" :key="tech" class="tech-badge">{{ tech }}</span>
-                    </div>
-                    <p class="text-white-50 fs-6 lh-lg mb-0">
-                        {{ activeProject.desc }}
-                    </p>
                 </div>
             </div>
-        </div>
+        </Teleport>
     </section>
 </template>
 
@@ -106,13 +160,13 @@ const projects = [
         title: "Elevate Coffee Web",
         desc: "A full-stack e-commerce web application for Elevate Coffee, engineered with Vue.js and Golang. Integrated via RESTful API, the platform features secure user authentication, a seamless shopping and checkout experience, and a dedicated Admin Dashboard for efficient management of user profiles and menu inventories.",
         images: [
-            "/image/home_caffe.png", 
-            "/image/about_caffe.png", 
-            "/image/fasilitas.png", 
-            "/image/menucafe.png", 
+            "/image/home_caffe.png",
+            "/image/about_caffe.png",
+            "/image/fasilitas.png",
+            "/image/menucafe.png",
             "/image/promocafe.png"
         ],
-        tech: ["Vue Js", "Golang"]
+        tech: ["Vue.js", "Golang"]
     },
     {
         id: 3,
@@ -134,7 +188,7 @@ const projects = [
             "/image/eco13.jpeg",
             "/image/eco14.jpeg",
         ],
-        tech: ["Vue Js", "Laravel", "Tailwind CSS"]
+        tech: ["Vue.js", "Laravel", "Tailwind CSS"]
     },
     {
         id: 4,
@@ -166,20 +220,35 @@ const projects = [
     }
 ]
 
-// --- MESIN MODAL ---
+// --- MESIN MODAL & SLIDER ---
 const isModalOpen = ref(false)
 const activeProject = ref(null)
+const currentImageIndex = ref(0)
 
 const openModal = (project) => {
     activeProject.value = project
+    currentImageIndex.value = 0
     isModalOpen.value = true
     document.body.style.overflow = 'hidden'
 }
 
 const closeModal = () => {
     isModalOpen.value = false
-    setTimeout(() => { activeProject.value = null }, 300)
+    setTimeout(() => {
+        activeProject.value = null
+        currentImageIndex.value = 0
+    }, 300)
     document.body.style.overflow = 'auto'
+}
+
+const nextImage = () => {
+    if (!activeProject.value) return
+    currentImageIndex.value = (currentImageIndex.value + 1) % activeProject.value.images.length
+}
+
+const prevImage = () => {
+    if (!activeProject.value) return
+    currentImageIndex.value = (currentImageIndex.value - 1 + activeProject.value.images.length) % activeProject.value.images.length
 }
 
 const handleEsc = (e) => {
@@ -191,31 +260,3 @@ const handleEsc = (e) => {
 onMounted(() => { window.addEventListener('keydown', handleEsc) })
 onUnmounted(() => { window.removeEventListener('keydown', handleEsc) })
 </script>
-
-<style scoped>
-    @import '@/assets/style/Project.css';
-
-    .project-card {
-        transition: all 0.3s ease-in-out;
-        border-top: 4px solid transparent;
-    }
-
-    .project-card:hover {
-        border-top: 4px solid #9d7cff;
-        transform: translateY(-8px);
-        box-shadow: 0 10px 25px rgba(157, 124, 255, 0.15);
-    }
-
-    .project-modal-close {
-        transition: all 0.4s ease-in-out !important;
-    }
-
-    .project-modal-close:hover {
-        background: #9d7cff !important;
-        transform: rotate(90deg) scale(1.1) !important;
-    }
-
-    .cert-link {
-        color: #d4c6ff;
-    }
-</style>
