@@ -78,7 +78,3 @@
         </div>
     </section>
 </template>
-
-<script setup>
-// Komponen murni form penampung tanpa logic berat
-</script>
