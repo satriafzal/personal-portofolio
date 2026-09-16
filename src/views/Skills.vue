@@ -37,7 +37,7 @@
                     <div
                         class="h-full flex flex-col p-6 sm:p-8 bg-slate-900/60 border border-purple-500/10 border-t-2 border-t-transparent hover:border-t-purple-500 hover:border-purple-500/30 rounded-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/10">
                         <h3 class="text-white text-xl font-bold mb-6 text-center border-b border-slate-800 pb-4">
-                            Backend
+                            Backend & Database
                         </h3>
                         <div class="flex justify-center flex-wrap gap-4 my-auto">
                             <div v-for="skill in backendSkills" :key="skill.name"
@@ -86,7 +86,7 @@ const frontendSkills = [
 const backendSkills = [
     { name: 'Laravel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg' },
     { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg' },
-    { name: 'Go', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original-wordmark.svg' }
+    { name: 'Mysql', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg' },
 ]
 
 const toolsSkills = [
