@@ -7,13 +7,13 @@
 
                 <!-- Inisial Logo (Kiri) -->
                 <a href="#home" class="flex items-center gap-3 group no-underline">
-                    <div
+                    <!-- <div
                         class="w-10 h-10 rounded-xl bg-purple-600/20 border border-purple-500/40 flex items-center justify-center text-purple-300 font-extrabold text-base tracking-wider group-hover:border-purple-400 group-hover:bg-purple-600/30 transition-all duration-300 shadow-lg shadow-purple-500/10">
                         SAZ
-                    </div>
+                    </div> -->
                     <span
-                        class="text-white font-bold text-lg hidden sm:inline-block tracking-tight group-hover:text-purple-300 transition-colors">
-                        Satria<span class="text-purple-400">.dev</span>
+                        class="text-white font-bold text-lg sm:inline-block tracking-tight group-hover:text-purple-300 transition-colors">
+                        Satriafzal<span class="text-purple-400">.dev</span>
                     </span>
                 </a>
 
@@ -72,6 +72,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
+    { name: 'Journey', href: '#journey' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'Certificates', href: '#certificates' },
