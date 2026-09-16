@@ -72,8 +72,8 @@
                             </svg>
                         </a>
 
-                        <a href="#contact"
-                            class="px-6 py-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-white border border-slate-700/80 hover:border-purple-500/50 font-semibold text-sm transition-all duration-300 no-underline">
+                        <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/satria-afzal-zaydan-64a190308/"
+                            class="relative z-30 px-6 py-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-white border border-slate-700/80 hover:border-purple-500/50 font-semibold text-sm transition-all duration-300 no-underline">
                             Let's Connect
                         </a>
                     </div>
@@ -97,7 +97,7 @@
                             </div>
                             <span
                                 class="absolute left-1/2 -translate-x-1/2 text-xs font-mono text-slate-400 tracking-wider">
-                                developer-profile.config.ts
+                                developer-profile.vue
                             </span>
                         </div>
 
