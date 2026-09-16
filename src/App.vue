@@ -11,39 +11,23 @@ import Footer from './components/Footer.vue';
 </script>
 
 <template>
-  <div class="portfolio-wrapper">
+  <div class="min-h-screen bg-[#120c1f] text-slate-100 font-sans antialiased overflow-x-hidden selection:bg-purple-500 selection:text-white">
     <Navbar />
-    <Hero />
-    <AboutView/>
-    <Myjourney/>
-    <Skills/>
-    <Project/>
-    <Certificate/>
-    <Contact/>
-    <Footer/>
+    <main>
+      <Hero />
+      <AboutView />
+      <Myjourney />
+      <Skills />
+      <Project />
+      <Certificate />
+      <Contact />
+    </main>
+    <Footer />
   </div>
 </template>
 
 <style>
-html, body {
-  overflow-x: hidden !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0;
-  padding: 0;
-  background-color: #120c1f !important; 
-}
-
-#app {
-  overflow-x: hidden !important;
-  width: 100%;
-  position: relative;
-  background-color: #120c1f !important; 
-}
-
-.portfolio-wrapper {
-  overflow-x: hidden !important;
-  width: 100%;
-  background-color: #120c1f !important; 
+html {
+  scroll-behavior: smooth;
 }
 </style>
