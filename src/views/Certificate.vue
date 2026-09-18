@@ -86,6 +86,13 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const certificates = [
   {
     id: 1,
+    title: "Full Stack Developer FWD Certificate",
+    issuer: "Dibimbing",
+    desc: "complete the 5-day Full Stack Developer class with @dibimbing.id! Throughout this intensive event, I had the opportunity to dive deep into modern web development concepts and get hands-on experience building applications using Next.js.",
+    image: "/image/fwd.jpeg"
+  },
+  {
+    id: 2,
     title: "Quality Assurance (QA) Testing Certificate",
     issuer: "Dibimbing",
     desc: "Thrilled to share a new milestone! 🎓 Today, I received my Quality Assurance certificate from an insightful session hosted by @dibimbing.id. As someone accustomed to using Java for building application logic and features, diving into Automation Testing provided a completely refreshing perspective.",
