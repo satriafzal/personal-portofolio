@@ -1,9 +1,9 @@
 <template>
-    <section class="py-20 sm:py-28 relative z-20" id="projects">
+    <section ref="projectsRef" class="py-20 sm:py-28 relative z-20" id="projects">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <!-- Header Section -->
-            <div class="mb-12 sm:mb-16" data-aos="fade-right">
+            <div class="gsap-header opacity-0 mb-12 sm:mb-16">
                 <p class="text-purple-400 font-semibold text-sm tracking-wider uppercase mb-1">
                     My Portfolio
                 </p>
@@ -14,14 +14,16 @@
 
             <!-- Projects Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <div v-for="project in projects" :key="project.id" data-aos="fade-up">
+                <div v-for="project in projects" :key="project.id" class="gsap-project opacity-0">
                     <div
                         class="h-full flex flex-col bg-slate-900/60 border border-purple-500/10 border-t-2 border-t-transparent hover:border-t-purple-500 hover:border-purple-500/30 rounded-2xl overflow-hidden backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/10 group">
 
                         <!-- Thumbnail Gambar -->
-                        <div class="h-52 w-full overflow-hidden bg-slate-950">
+                        <div class="h-52 w-full overflow-hidden bg-slate-950 relative">
+                            <!-- Overlay Skeleton Loading Biar Gambar Ga Patah Pas Load -->
+                            <div class="absolute inset-0 bg-slate-800 animate-pulse -z-10"></div>
                             <img :src="project.images[0]" :alt="project.title"
-                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
                         </div>
 
                         <!-- Project Content -->
@@ -62,84 +64,102 @@
 
         <!-- MODAL PROJECT POPUP -->
         <Teleport to="body">
-            <div v-if="isModalOpen"
-                class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md transition-opacity duration-300"
-                @click="closeModal">
-                <!-- Close Button -->
-                <button
-                    class="absolute top-4 right-4 z-20 p-2 bg-slate-800/80 text-white rounded-full hover:bg-purple-600 hover:rotate-90 transition-all duration-300"
-                    @click.stop="closeModal">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                        </path>
-                    </svg>
-                </button>
+            <Transition
+              enter-active-class="transition ease-out duration-300"
+              enter-from-class="opacity-0 scale-95"
+              enter-to-class="opacity-100 scale-100"
+              leave-active-class="transition ease-in duration-200"
+              leave-from-class="opacity-100 scale-100"
+              leave-to-class="opacity-0 scale-95"
+            >
+                <div v-if="isModalOpen"
+                    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md"
+                    @click="closeModal">
+                    
+                    <!-- Close Button -->
+                    <button
+                        class="absolute top-4 right-4 z-[60] p-2 bg-slate-800 text-white rounded-full hover:bg-purple-600 hover:rotate-90 transition-all duration-300 shadow-lg"
+                        @click.stop="closeModal">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
 
-                <!-- Modal Content Container -->
-                <div class="bg-slate-900 border border-purple-500/20 rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl shadow-purple-500/10"
-                    @click.stop>
+                    <!-- Modal Content Container -->
+                    <div class="bg-slate-900 border border-purple-500/20 rounded-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl shadow-purple-500/10"
+                        @click.stop>
 
-                    <!-- Image Slider / Viewer (Top Half) -->
-                    <div
-                        class="relative h-64 sm:h-96 bg-slate-950 flex items-center justify-center overflow-hidden shrink-0">
-                        <img :src="activeProject.images[currentImageIndex]"
-                            class="w-full h-full object-contain p-4 transition-all duration-300" alt="Project Showcase">
+                        <!-- Image Slider / Viewer (Top Half) -->
+                        <div
+                            class="relative h-64 sm:h-96 bg-slate-950 flex items-center justify-center overflow-hidden shrink-0 group/slider">
+                            
+                            <!-- Main Image -->
+                            <img :src="activeProject.images[currentImageIndex]"
+                                class="w-full h-full object-contain p-4 transition-all duration-300" :alt="activeProject.title">
 
-                        <!-- Navigation Controls (If multiple images) -->
-                        <template v-if="activeProject.images.length > 1">
-                            <button @click="prevImage"
-                                class="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-slate-900/70 hover:bg-purple-600 text-white transition-colors duration-200">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15 19l-7-7 7-7"></path>
-                                </svg>
-                            </button>
+                            <!-- Navigation Controls -->
+                            <template v-if="activeProject.images.length > 1">
+                                <button @click="prevImage"
+                                    class="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-slate-900/70 hover:bg-purple-600 text-white transition-colors duration-200 opacity-0 group-hover/slider:opacity-100 focus:opacity-100">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 19l-7-7 7-7"></path>
+                                    </svg>
+                                </button>
 
-                            <button @click="nextImage"
-                                class="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-slate-900/70 hover:bg-purple-600 text-white transition-colors duration-200">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </button>
+                                <button @click="nextImage"
+                                    class="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-slate-900/70 hover:bg-purple-600 text-white transition-colors duration-200 opacity-0 group-hover/slider:opacity-100 focus:opacity-100">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </button>
 
-                            <!-- Indicators Dots -->
-                            <div
-                                class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 px-3 py-1 bg-slate-900/60 rounded-full backdrop-blur-sm">
-                                <button v-for="(_, index) in activeProject.images" :key="index"
-                                    @click="currentImageIndex = index"
-                                    class="w-2 h-2 rounded-full transition-all duration-300"
-                                    :class="currentImageIndex === index ? 'bg-purple-500 w-5' : 'bg-slate-500/50'"></button>
-                            </div>
-                        </template>
-                    </div>
-
-                    <!-- Info Details (Bottom Half - Scrollable) -->
-                    <div class="p-6 sm:p-8 overflow-y-auto space-y-4">
-                        <h3 class="text-2xl font-bold text-white">
-                            {{ activeProject.title }}
-                        </h3>
-
-                        <div class="flex flex-wrap gap-2">
-                            <span v-for="tech in activeProject.tech" :key="tech"
-                                class="bg-purple-500/10 text-purple-300 text-xs font-semibold px-3 py-1 rounded-full border border-purple-500/20">
-                                {{ tech }}
-                            </span>
+                                <!-- Indicators Dots -->
+                                <div
+                                    class="absolute bottom-3 left-1/2 -translate-x-1/2 flex flex-wrap justify-center max-w-[80%] gap-1.5 px-3 py-1 bg-slate-900/60 rounded-full backdrop-blur-sm">
+                                    <button v-for="(_, index) in activeProject.images" :key="index"
+                                        @click="currentImageIndex = index"
+                                        class="w-2 h-2 rounded-full transition-all duration-300"
+                                        :class="currentImageIndex === index ? 'bg-purple-500 w-4' : 'bg-slate-500/50 hover:bg-slate-400'"></button>
+                                </div>
+                            </template>
                         </div>
 
-                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                            {{ activeProject.desc }}
-                        </p>
-                    </div>
+                        <!-- Info Details -->
+                        <div class="p-6 sm:p-8 overflow-y-auto space-y-4">
+                            <h3 class="text-2xl font-bold text-white">
+                                {{ activeProject.title }}
+                            </h3>
 
+                            <div class="flex flex-wrap gap-2">
+                                <span v-for="tech in activeProject.tech" :key="tech"
+                                    class="bg-purple-500/10 text-purple-300 text-xs font-semibold px-3 py-1 rounded-full border border-purple-500/20">
+                                    {{ tech }}
+                                </span>
+                            </div>
+
+                            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                                {{ activeProject.desc }}
+                            </p>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
+            </Transition>
         </Teleport>
     </section>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+const projectsRef = ref(null)
+let ctx
 
 const projects = [
     {
@@ -257,6 +277,45 @@ const handleEsc = (e) => {
     }
 }
 
-onMounted(() => { window.addEventListener('keydown', handleEsc) })
-onUnmounted(() => { window.removeEventListener('keydown', handleEsc) })
+onMounted(() => {
+    window.addEventListener('keydown', handleEsc)
+
+    ctx = gsap.context(() => {
+        // Animasi Header
+        gsap.fromTo('.gsap-header',
+            { opacity: 0, x: -50 },
+            {
+                scrollTrigger: {
+                    trigger: '.gsap-header',
+                    start: 'top 85%',
+                },
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                ease: 'power3.out'
+            }
+        )
+
+        // Animasi Card Projects
+        gsap.fromTo('.gsap-project',
+            { opacity: 0, y: 50 },
+            {
+                scrollTrigger: {
+                    trigger: '.gsap-project',
+                    start: 'top 80%',
+                },
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: 'back.out(1.2)'
+            }
+        )
+    }, projectsRef.value)
+})
+
+onUnmounted(() => {
+    window.removeEventListener('keydown', handleEsc)
+    if (ctx) ctx.revert()
+})
 </script>
