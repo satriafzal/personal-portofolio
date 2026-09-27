@@ -1,9 +1,9 @@
 <template>
-    <section class="py-20 sm:py-28 relative z-20" id="skills">
+    <section ref="skillsRef" class="py-20 sm:py-28 relative z-20" id="skills">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <!-- Header Section -->
-            <div class="mb-12 sm:mb-16" data-aos="fade-right">
+            <div class="gsap-header opacity-0 mb-12 sm:mb-16">
                 <p class="text-purple-400 font-semibold text-sm tracking-wider uppercase mb-1">
                     My Expertise
                 </p>
@@ -16,7 +16,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
 
                 <!-- CARD FRONTEND -->
-                <div data-aos="fade-up">
+                <div class="gsap-card opacity-0">
                     <div
                         class="h-full flex flex-col p-6 sm:p-8 bg-slate-900/60 border border-purple-500/10 border-t-2 border-t-transparent hover:border-t-purple-500 hover:border-purple-500/30 rounded-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/10">
                         <h3 class="text-white text-xl font-bold mb-6 text-center border-b border-slate-800 pb-4">
@@ -33,7 +33,7 @@
                 </div>
 
                 <!-- CARD BACKEND -->
-                <div data-aos="fade-up" data-aos-delay="100">
+                <div class="gsap-card opacity-0">
                     <div
                         class="h-full flex flex-col p-6 sm:p-8 bg-slate-900/60 border border-purple-500/10 border-t-2 border-t-transparent hover:border-t-purple-500 hover:border-purple-500/30 rounded-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/10">
                         <h3 class="text-white text-xl font-bold mb-6 text-center border-b border-slate-800 pb-4">
@@ -50,7 +50,7 @@
                 </div>
 
                 <!-- CARD TOOLS -->
-                <div data-aos="fade-up" data-aos-delay="200">
+                <div class="gsap-card opacity-0">
                     <div
                         class="h-full flex flex-col p-6 sm:p-8 bg-slate-900/60 border border-purple-500/10 border-t-2 border-t-transparent hover:border-t-purple-500 hover:border-purple-500/30 rounded-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/10">
                         <h3 class="text-white text-xl font-bold mb-6 text-center border-b border-slate-800 pb-4">
@@ -74,6 +74,15 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+const skillsRef = ref(null)
+let ctx
+
 const frontendSkills = [
     { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
     { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
@@ -97,4 +106,41 @@ const toolsSkills = [
     { name: 'Discord', icon: 'https://cdn.simpleicons.org/discord/5865F2' },
     { name: 'Firebase', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg' }
 ]
+
+onMounted(() => {
+    ctx = gsap.context(() => {
+        gsap.fromTo('.gsap-header',
+            { opacity: 0, x: -50 },
+            {
+                scrollTrigger: {
+                    trigger: '.gsap-header',
+                    start: 'top 85%'
+                },
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                ease: 'power3.out'
+            }
+        )
+
+        gsap.fromTo('.gsap-card',
+            { opacity: 0, y: 50 },
+            {
+                scrollTrigger: {
+                    trigger: '.gsap-card',
+                    start: 'top 80%'
+                },
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                stagger: 0.2, 
+                ease: 'back.out(1.2)'
+            }
+        )
+    }, skillsRef.value)
+})
+
+onUnmounted(() => {
+    if (ctx) ctx.revert()
+})
 </script>
