@@ -105,69 +105,76 @@ let ctx
 const certificates = [
   {
     id: 1,
+    title: "OpenCv Bootcamp Certificate",
+    issuer: "OpenCv",
+    desc: "Successfully completed an intensive Computer Vision training program from OpenCV University, earning a Certificate of Excellence with a final score of 96%.",
+    image: "/image/opencv.jpeg"
+  },
+  {
+    id: 2,
     title: "Full Stack Developer FWD Certificate",
     issuer: "Dibimbing",
     desc: "complete the 5-day Full Stack Developer class with @dibimbing.id! Throughout this intensive event, I had the opportunity to dive deep into modern web development concepts and get hands-on experience building applications using Next.js.",
     image: "/image/fwd.jpeg"
   },
   {
-    id: 2,
+    id: 3,
     title: "Quality Assurance (QA) Testing Certificate",
     issuer: "Dibimbing",
     desc: "Thrilled to share a new milestone! 🎓 Today, I received my Quality Assurance certificate from an insightful session hosted by @dibimbing.id. As someone accustomed to using Java for building application logic and features, diving into Automation Testing provided a completely refreshing perspective.",
     image: "/image/dibimbing.jpeg"
   },
   {
-    id: 3, 
+    id: 4, 
     title: "Intermediate Assistant Web Developer",
     issuer: "Kementrian Komunikasi Dan Digital",
     desc: "Completed intermediate-level training from the Ministry of Communication and Digital. Mastered the implementation of modern web technologies, full-stack architecture, and best practices in building responsive, scalable applications.",
     image: "/image/certif1.png"
   },
   {
-    id: 4, 
+    id: 5, 
     title: "Fundamentals Assistant Web Developer",
     issuer: "Kementrian Komunikasi Dan Digital",
     desc: "Mastered the fundamentals of web programming through the comprehensive Digital Talent Academy program. Acquired a strong understanding of core web languages and industry-standard software engineering methodologies.",
     image: "/image/certif2.png"
   },
   {
-    id: 5,
+    id: 6,
     title: "Belajar Dasar AI",
     issuer: "Dicoding Academy",
     desc: "Achieved competency graduation from Dicoding Academy. Understood the fundamental concepts of Artificial Intelligence, machine learning, and data processing basics to analyze modern AI technological case studies.",
     image: "/image/certif3.png"
   },
   {
-    id: 6,
+    id: 7,
     title: "Transforming Education Through AI, Innovation and Collaboration for a Digital Future",
     issuer: "Google Developer Groups Community UNM",
     desc: "Active participant in the Tech Talk hosted by Google Developer Groups (GDG) on Campus. Gained valuable insights into Artificial Intelligence innovations and digital collaboration to transform the future of education.",
     image: "/image/google.png"
   },
   {
-    id: 7,
+    id: 8,
     title: "Cisco Certificate Network",
     issuer: "CISCO",
     desc: "Completed the foundational network infrastructure certification program from Cisco Networking Academy. Acquired practical skills in utilizing Cisco Packet Tracer to design, configure, and simulate computer network architectures.",
     image: "/image/cisco.png"
   },
   {
-    id: 8,
+    id: 9,
     title: "IDCAMP x Dicoding",
     issuer: "Dicoding",
     desc: "Participated in the exclusive IDCamp x Dicoding program, focusing on mastering modern industry practices and accelerating professional career growth as a Full Stack Developer.",
     image: "/image/dicoding.png"
   },
   {
-    id: 9,
+    id: 10,
     title: "Literasi Digital",
     issuer: "Kementrian Komunikasi Dan Informatika",
     desc: "Active participant in the Digital Literacy program hosted by the Ministry of Communication and Information Technology. Gained crucial insights into safe internet practices, focusing on cyber awareness and strategies to protect families and communities from the risks of online gambling and illegal online loans.",
     image: "/image/kominfo.png"
   },
   {
-    id: 10,
+    id: 11,
     title: "Bootcamp C++",
     issuer: "Dilesin",
     desc: "Active participant in the intensive C++ Programming Bootcamp (Batch 5) hosted by Dilesin Academy. Successfully completed a total of 10 comprehensive sessions, building a solid foundation in core programming concepts, structural logic, object-oriented programming (OOP) principles, and algorithmic problem-solving using C++.",
