@@ -8,6 +8,7 @@ import Project from './views/Project.vue';
 import Certificate from './views/Certificate.vue';
 import Contact from './views/Contact.vue';
 import Footer from './components/Footer.vue';
+import Experience from './views/Experience.vue';
 </script>
 
 <template>
@@ -16,6 +17,7 @@ import Footer from './components/Footer.vue';
     <main>
       <Hero />
       <AboutView />
+      <Experience/>
       <Myjourney />
       <Skills />
       <Project />
