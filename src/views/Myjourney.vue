@@ -79,12 +79,12 @@ const journeyList = [
         role: "Freelance Frontend Developer",
         desc: "Developed a responsive and dynamic company profile website interface using Vue.js, accurately translating UI/UX designs into functional frontend code. Implemented Git version control to manage repositories and streamline code updates efficiently."
     },
-    {
-        period: "2026 - Present",
-        title: "Lecturer Collaborative Project: Village Digitization",
-        role: "Backend Developer (Laravel)",
-        desc: "Selected to collaborate directly with a university lecturer and an academic development team to build a centralized web platform for four local villages. Serving as the core Backend Developer utilizing Laravel, I am responsible for designing robust database architectures, developing secure APIs, and ensuring efficient server-side performance to accelerate digital transformation at the village administration level."
-    },
+    // {
+    //     period: "2026 - Present",
+    //     title: "Lecturer Collaborative Project: Village Digitization",
+    //     role: "Backend Developer (Laravel)",
+    //     desc: "Selected to collaborate directly with a university lecturer and an academic development team to build a centralized web platform for four local villages. Serving as the core Backend Developer utilizing Laravel, I am responsible for designing robust database architectures, developing secure APIs, and ensuring efficient server-side performance to accelerate digital transformation at the village administration level."
+    // },
     {
         period: "Maret - 2026",
         title: "Academic Research & PKM-KC",
