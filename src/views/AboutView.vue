@@ -22,7 +22,7 @@
             About Me
           </div>
           <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 leading-snug">
-            Currently an Informatics Engineering student at <span class="text-purple-400">Universitas Nusa Mandiri</span>.
+            Currently an Informatics Engineering student at <span class="text-purple-400">Universitas Nusa Mandiri</span>
           </h3>
           <div class="space-y-4 text-slate-300 text-base leading-relaxed">
             <p>
