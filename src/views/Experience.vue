@@ -84,18 +84,17 @@ let ctx
 const experiences = [
     {
         id: 1,
-        role: "Backend Developer",
+        role: "Frontend Developer",
         company: "Universitas Nusa Mandiri -  Smart Village Program",
         type: "Hybrid",
         period: "Maret 2026 - Present",
         logo: "/image/nusman.jpeg", 
         desc: [
-            "Contributed as a Back-End Developer in the Smart Village Program, focusing on the digitalization of village services.",
-            "Developed and maintained back-end features using Laravel based on project requirements.",
-            "Designed and implemented application logic, CRUD functionality, and database integration.",
-            "Worked with the development team to integrate back-end functionality with the front-end application.",
-            "Collaborated on a real-world web application intended to support digital village services and actual users.",
-            "Managed database operations and data relationships using MySQL."
+            "Developed web interfaces using Laravel and Blade based on project requirements.",
+            "Implemented responsive and interactive interfaces based on UI/UX designs.",
+            "Integrated frontend interfaces with backend features and data.",
+            "Collaborated with the Back-End Developer to develop and improve website features.",
+            "Contributed to a real-world web application intended for public use.",
         ]
     }
 ]
