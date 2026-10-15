@@ -22,7 +22,7 @@
                         <div class="h-52 w-full overflow-hidden bg-slate-950 relative">
                             <!-- Overlay Skeleton Loading Biar Gambar Ga Patah Pas Load -->
                             <div class="absolute inset-0 bg-slate-800 animate-pulse -z-10"></div>
-                            <img :src="project.images[0]" :alt="project.title"
+                            <img :src="project.images?.[0]" :alt="project.title"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
                         </div>
 
@@ -237,7 +237,17 @@ const projects = [
             "/image/desa20.jpeg",
         ],
         tech: ["Laravel"]
-    }
+    },
+    {
+        id: 5,
+        title: "GRID — Luxury Automotive Showroom & Custom CMS",
+        desc: "GRID is a full-stack digital showroom and dynamic Content Management System tailored for high-end automotive presentation. Built with Laravel, Vue 3, and Inertia.js, the platform features a highly flexible key-value architecture that empowers administrators to update landing page sections and media seamlessly. Designed with Tailwind CSS to deliver an ultra-sleek, dark luxury aesthetic.",
+        images: [
+            "/image/grid.jpg",
+        ],
+        tech: ["Vue.js", "Laravel"]
+    },
+    
 ]
 
 // --- MESIN MODAL & SLIDER ---
