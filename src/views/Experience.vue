@@ -87,7 +87,7 @@ const experiences = [
         role: "Frontend Developer",
         company: "Universitas Nusa Mandiri -  Smart Village Program",
         type: "Hybrid",
-        period: "Maret 2026 - Present",
+        period: "June 2026 - Present",
         logo: "/image/nusman.jpeg", 
         desc: [
             "Developed web interfaces using Laravel and Blade based on project requirements.",
