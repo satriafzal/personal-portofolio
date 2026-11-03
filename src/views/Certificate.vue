@@ -12,11 +12,12 @@
         </h2>
       </div>
 
-      <!-- Certificates Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-        <div v-for="cert in certificates" :key="cert.id" class="gsap-cert opacity-0">
+      <!-- Featured Certificates Grid (Hanya 3) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+        <div v-for="cert in featuredCertificates" :key="cert.id" class="gsap-cert opacity-0">
           <div
-            class="h-full flex flex-col bg-slate-900/60 border border-purple-500/10 border-t-2 border-t-transparent hover:border-t-purple-500 hover:border-purple-500/30 rounded-2xl overflow-hidden backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/10 group">
+            class="h-full flex flex-col bg-slate-900/60 border border-purple-500/10 border-t-2 border-t-transparent hover:border-t-purple-500 hover:border-purple-500/30 rounded-2xl overflow-hidden backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-purple-500/10 group cursor-pointer"
+            @click="openCertDetailModal(cert)">
 
             <!-- Certificate Image Thumbnail -->
             <div class="h-52 w-full overflow-hidden bg-slate-950 relative">
@@ -27,7 +28,7 @@
 
             <!-- Certificate Info -->
             <div class="p-6 flex flex-col flex-grow">
-              <h3 class="text-white text-xl font-bold mb-1">
+              <h3 class="text-white text-xl font-bold mb-1 group-hover:text-purple-300 transition-colors">
                 {{ cert.title }}
               </h3>
 
@@ -35,29 +36,94 @@
                 {{ cert.issuer }}
               </p>
 
-              <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              <p class="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3">
                 {{ cert.desc }}
               </p>
 
               <!-- View Action Button -->
-              <button @click="openModal(cert.image)"
-                class="text-purple-300 hover:text-purple-200 text-sm font-semibold inline-flex items-center gap-2 transition-colors duration-200 mt-auto self-start group/btn">
-                View
-                <svg class="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-200"
+              <span
+                class="text-purple-300 text-sm font-semibold inline-flex items-center gap-2 mt-auto self-start group-hover:text-purple-200">
+                View Details
+                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
                   fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m-7-7l7 7-7 7">
                   </path>
                 </svg>
-              </button>
+              </span>
             </div>
 
           </div>
         </div>
       </div>
 
+      <!-- View All Button -->
+      <div class="gsap-btn opacity-0 flex justify-center">
+        <button @click="openListModal"
+          class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-slate-900/80 border border-purple-500/30 text-purple-300 hover:text-white hover:border-purple-500 hover:bg-purple-600/20 transition-all duration-300 font-semibold tracking-wide shadow-lg shadow-purple-900/20 hover:-translate-y-1">
+          Lihat Sertifikat Lainnya
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </button>
+      </div>
+
     </div>
 
-    <!-- CERTIFICATE FULL IMAGE MODAL -->
+    <!-- MODAL 1: ALL CERTIFICATES LIST -->
+    <Teleport to="body">
+      <Transition
+        enter-active-class="transition ease-out duration-300"
+        enter-from-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        enter-to-class="opacity-100 translate-y-0 sm:scale-100"
+        leave-active-class="transition ease-in duration-200"
+        leave-from-class="opacity-100 translate-y-0 sm:scale-100"
+        leave-to-class="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+      >
+        <div v-if="isListModalOpen"
+          class="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6 bg-slate-950/85 backdrop-blur-md"
+          @click="closeListModal">
+          
+          <!-- Modal Container -->
+          <div class="bg-slate-900 border border-purple-500/20 rounded-3xl overflow-hidden w-full max-w-6xl max-h-[90vh] flex flex-col shadow-2xl shadow-purple-500/20"
+            @click.stop>
+            
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between p-6 border-b border-purple-500/10 bg-slate-900/95 sticky top-0 z-10">
+              <div>
+                <h3 class="text-2xl font-bold text-white">All Certificates</h3>
+                <p class="text-purple-400 text-sm mt-1">My complete learning and achievement history</p>
+              </div>
+              <button @click="closeListModal" class="p-2 bg-slate-800 text-white rounded-full hover:bg-purple-600 hover:rotate-90 transition-all duration-300">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              </button>
+            </div>
+
+            <!-- Modal Scrollable Content -->
+            <div class="p-6 overflow-y-auto bg-slate-950/50">
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div v-for="cert in certificates" :key="cert.id">
+                  <div
+                    class="h-full flex flex-col bg-slate-900 border border-purple-500/10 rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-300 group cursor-pointer"
+                    @click="openCertDetailModal(cert)">
+                    
+                    <div class="h-48 w-full overflow-hidden bg-slate-950">
+                      <img :src="cert.image" :alt="cert.title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    </div>
+                    
+                    <div class="p-5 flex flex-col flex-grow">
+                      <h4 class="text-white font-bold mb-1 text-lg group-hover:text-purple-300 transition-colors">{{ cert.title }}</h4>
+                      <p class="text-purple-400 font-medium text-xs mb-3">{{ cert.issuer }}</p>
+                      <p class="text-slate-400 text-xs leading-relaxed line-clamp-2">{{ cert.desc }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </Transition>
+    </Teleport>
+
+    <!-- MODAL 2: FULL CERTIFICATE DETAIL & IMAGE PREVIEW (WADAH GAMBAR SUDAH DI-FITTED) -->
     <Teleport to="body">
       <Transition
         enter-active-class="transition ease-out duration-300"
@@ -67,23 +133,45 @@
         leave-from-class="opacity-100 scale-100"
         leave-to-class="opacity-0 scale-95"
       >
-        <div v-if="isModalOpen"
-          class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md"
-          @click="closeModal">
+        <div v-if="isDetailModalOpen"
+          class="fixed inset-0 z-[80] flex items-center justify-center p-4 sm:p-6 bg-slate-950/90 backdrop-blur-xl"
+          @click="closeDetailModal">
           
           <!-- Close Button -->
           <button
-            class="absolute top-4 right-4 z-[60] p-2 bg-slate-800/80 text-white rounded-full hover:bg-purple-600 hover:rotate-90 transition-all duration-300 shadow-lg"
-            @click.stop="closeModal">
+            class="absolute top-4 right-4 z-[90] p-2 bg-slate-800/80 text-white rounded-full hover:bg-purple-600 hover:rotate-90 transition-all duration-300 shadow-lg"
+            @click.stop="closeDetailModal">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
           </button>
 
-          <!-- Image Preview Container -->
-          <div class="relative max-w-4xl w-full max-h-[90vh] flex items-center justify-center p-2" @click.stop>
-            <img :src="activeImg" alt="Certificate Preview"
-              class="w-full h-full max-h-[85vh] object-contain rounded-xl border border-purple-500/20 shadow-2xl shadow-purple-500/10" />
+          <!-- Detail Container -->
+          <div class="bg-slate-900 border border-purple-500/20 rounded-3xl overflow-hidden w-full max-w-3xl max-h-[90vh] flex flex-col shadow-2xl shadow-purple-500/20"
+            @click.stop>
+            
+            <!-- Gambar Sertifikat (Ukuran Wadah Mengikuti Tinggi Gambar) -->
+            <div class="relative max-h-[55vh] bg-slate-950/80 flex items-center justify-center p-3 sm:p-4 shrink-0 overflow-hidden border-b border-slate-800">
+              <img :src="activeCert?.image" :alt="activeCert?.title"
+                class="max-h-[50vh] w-auto max-w-full object-contain rounded-lg shadow-xl" />
+            </div>
+
+            <!-- Detail Info & Full Description (Bawah - Scrollable) -->
+            <div class="p-6 sm:p-8 overflow-y-auto space-y-3 bg-slate-900">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <h3 class="text-xl sm:text-2xl font-bold text-white">
+                  {{ activeCert?.title }}
+                </h3>
+                <span class="px-3.5 py-1 bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs sm:text-sm font-semibold rounded-full">
+                  {{ activeCert?.issuer }}
+                </span>
+              </div>
+
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed pt-3 border-t border-slate-800/80">
+                {{ activeCert?.desc }}
+              </p>
+            </div>
+
           </div>
           
         </div>
@@ -93,7 +181,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 
@@ -179,66 +267,97 @@ const certificates = [
     issuer: "Dilesin",
     desc: "Active participant in the intensive C++ Programming Bootcamp (Batch 5) hosted by Dilesin Academy. Successfully completed a total of 10 comprehensive sessions, building a solid foundation in core programming concepts, structural logic, object-oriented programming (OOP) principles, and algorithmic problem-solving using C++.",
     image: "/image/dilesin.png"
-  }
+  },
+  {
+    id: 12,
+    title: "AI Implementation for Digital Business Transformation Workshop",
+    issuer: "Nusa Mandiri University",
+    desc: "Participated in an academic workshop hosted by the Faculty of Information Technology at Universitas Nusa Mandiri. Gained practical insights into building smart applications powered by Artificial Intelligence to accelerate digital transformation in modern business operations.",
+    image: "/image/nusman1.jpg"
+  },
+  {
+    id: 13,
+    title: "Integration of Generative AI in Modern Software Development Webinar",
+    issuer: "Nusa Mandiri University",
+    desc: "Participated in an online academic webinar hosted by the Faculty of Information Technology at Universitas Nusa Mandiri. Explored key methodologies, best practices, and practical workflows for integrating Generative Artificial Intelligence into modern software engineering pipelines.",
+    image: "/image/nusman2.jpg"
+  },
 ]
 
-// --- MESIN MODAL ---
-const isModalOpen = ref(false)
-const activeImg = ref('')
+// Featured 3 item
+const featuredCertificates = computed(() => certificates.slice(0, 3))
 
-const openModal = (imgSrc) => {
-  activeImg.value = imgSrc
-  isModalOpen.value = true
+// State Modals
+const isListModalOpen = ref(false)
+const isDetailModalOpen = ref(false)
+const activeCert = ref(null)
+
+const openListModal = () => {
+  isListModalOpen.value = true
   document.body.style.overflow = 'hidden'
 }
 
-const closeModal = () => {
-  isModalOpen.value = false
+const closeListModal = () => {
+  isListModalOpen.value = false
+  if (!isDetailModalOpen.value) {
+    document.body.style.overflow = 'auto'
+  }
+}
+
+// Buka modal detail sertifikat utuh
+const openCertDetailModal = (cert) => {
+  activeCert.value = cert
+  isDetailModalOpen.value = true
+  document.body.style.overflow = 'hidden'
+}
+
+const closeDetailModal = () => {
+  isDetailModalOpen.value = false
   setTimeout(() => {
-    activeImg.value = ''
+    activeCert.value = null
   }, 300)
-  document.body.style.overflow = 'auto'
+  
+  if (!isListModalOpen.value) {
+    document.body.style.overflow = 'auto'
+  }
 }
 
 const handleEsc = (e) => {
-  if (e.key === 'Escape' && isModalOpen.value) {
-    closeModal()
+  if (e.key === 'Escape') {
+    if (isDetailModalOpen.value) {
+      closeDetailModal()
+    } 
+    else if (isListModalOpen.value) {
+      closeListModal()
+    }
   }
 }
 
 onMounted(() => {
   window.addEventListener('keydown', handleEsc)
 
-  // Setup GSAP
   ctx = gsap.context(() => {
-    // Animasi Header
     gsap.fromTo('.gsap-header',
       { opacity: 0, x: -50 },
       {
-        scrollTrigger: {
-          trigger: '.gsap-header',
-          start: 'top 85%',
-        },
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        ease: 'power3.out'
+        scrollTrigger: { trigger: '.gsap-header', start: 'top 85%' },
+        opacity: 1, x: 0, duration: 1, ease: 'power3.out'
       }
     )
 
-    // Animasi Certificates Card
     gsap.fromTo('.gsap-cert',
       { opacity: 0, y: 50 },
       {
-        scrollTrigger: {
-          trigger: '.gsap-cert',
-          start: 'top 80%',
-        },
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.15, // Efek muncul berurutan (kiri ke kanan, atas ke bawah)
-        ease: 'back.out(1.2)'
+        scrollTrigger: { trigger: '.gsap-cert', start: 'top 80%' },
+        opacity: 1, y: 0, duration: 0.8, stagger: 0.15, ease: 'back.out(1.2)'
+      }
+    )
+
+    gsap.fromTo('.gsap-btn',
+      { opacity: 0, scale: 0.9 },
+      {
+        scrollTrigger: { trigger: '.gsap-btn', start: 'top 90%' },
+        opacity: 1, scale: 1, duration: 0.6, ease: 'back.out(1.5)', delay: 0.4
       }
     )
   }, certificatesRef.value)
