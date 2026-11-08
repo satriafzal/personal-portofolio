@@ -22,7 +22,7 @@
             About Me
           </div>
           <h3 class="text-xl sm:text-2xl font-bold text-white mb-4 leading-snug">
-            Currently an Informatics Engineering student at <span class="text-purple-400">Universitas Nusa Mandiri</span>
+            Currently an Informatics student at <span class="text-purple-400">Nusa Mandiri University</span>
           </h3>
           <div class="space-y-4 text-slate-300 text-base leading-relaxed">
             <p>
@@ -44,7 +44,7 @@
               Core Stack
             </div>
             <div class="flex flex-wrap gap-2 sm:gap-3">
-              <span v-for="tech in ['Vue.js', 'Laravel', 'PHP', 'Tailwind CSS', 'MySQL', 'REST API', 'Java-Script']" :key="tech" 
+              <span v-for="tech in ['Vue.js', 'Laravel', 'PHP', 'Tailwind CSS', 'MySQL', 'REST API', 'Java-Script', 'Ai Agent']" :key="tech" 
                     class="stack-pill opacity-0 scale-90 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg bg-slate-800/80 border border-slate-700/50 text-slate-300 text-sm hover:text-white hover:border-purple-500/50 hover:bg-purple-500/10 transition-colors cursor-default">
                 {{ tech }}
               </span>
@@ -167,7 +167,7 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  clearTimeout(typingTimeout) // Wajib dibersihkan biar gak bocor memory pas pindah halaman
+  clearTimeout(typingTimeout)
   if (ctx) ctx.revert()
 })
 </script>
