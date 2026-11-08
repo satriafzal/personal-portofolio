@@ -79,23 +79,11 @@ const journeyList = [
         role: "Freelance Frontend Developer",
         desc: "Developed a responsive and dynamic company profile website interface using Vue.js, accurately translating UI/UX designs into functional frontend code. Implemented Git version control to manage repositories and streamline code updates efficiently."
     },
-    // {
-    //     period: "2026 - Present",
-    //     title: "Lecturer Collaborative Project: Village Digitization",
-    //     role: "Backend Developer (Laravel)",
-    //     desc: "Selected to collaborate directly with a university lecturer and an academic development team to build a centralized web platform for four local villages. Serving as the core Backend Developer utilizing Laravel, I am responsible for designing robust database architectures, developing secure APIs, and ensuring efficient server-side performance to accelerate digital transformation at the village administration level."
-    // },
     {
         period: "Maret - 2026",
         title: "Academic Research & PKM-KC",
         role: "Full-Stack Web Developer",
         desc: "Spearheading the development of an AI-driven sentiment analysis web platform for F&B MSMEs along Margonda Raya, Depok. By integrating Deep Learning and LLM models to analyze customer reviews, this project not only hones my full-stack engineering capabilities but also strengthens my complex problem-solving, intensive brainstorming, and teamwork skills in a highly collaborative research environment."
-    },
-    {
-        period: "September 2024 - present",
-        title: "Universitas Nusa Mandiri (UNM)",
-        role: "Informatics Student",
-        desc: "Pursuing a Bachelor's degree in Informatics Engineering at an 'Unggul' accredited program. Focusing on full-stack web, software engineering methodologies and database management."
     },
     {
         period: "2024 - present",
