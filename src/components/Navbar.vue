@@ -68,6 +68,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
+    { name: 'Education', href: '#education' },
     { name: 'Experience', href: '#experience' },
     { name: 'Journey', href: '#journey' },
     { name: 'Skills', href: '#skills' },
