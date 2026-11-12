@@ -9,7 +9,7 @@
                 :class="[
                     isScrolled && !isDesktopHovered
                         ? 'max-w-[210px] pl-4 pr-3 py-2'
-                        : 'max-w-[1050px] px-4 py-2'
+                        : 'max-w-[1150px] px-4 py-2'
                 ]" @mouseenter="handlePillMouseEnter" @mouseleave="handlePillMouseLeave">
                 <!-- Logo / Brand (Kiri) -->
                 <a href="#home"
@@ -34,7 +34,7 @@
                 <div class="flex items-center transition-all duration-500 ease-in-out" :class="[
                     isScrolled && !isDesktopHovered
                         ? 'max-w-0 opacity-0 pointer-events-none ml-0 overflow-hidden'
-                        : 'max-w-[850px] opacity-100 ml-5 overflow-visible'
+                        : 'max-w-[950px] opacity-100 ml-5 overflow-visible'
                 ]">
                     <nav class="flex items-center space-x-1 lg:space-x-1.5 text-xs lg:text-sm font-medium">
                         <!-- Home -->
@@ -49,13 +49,31 @@
                             About
                         </a>
 
-                        <!-- Dropdown Career / Background -->
+                        <!-- Education (langsung, bukan dropdown) -->
+                        <a href="#education"
+                            class="px-3 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-purple-500/15 transition-all no-underline whitespace-nowrap">
+                            Education
+                        </a>
+
+                        <!-- Experience (langsung, bukan dropdown) -->
+                        <a href="#experience"
+                            class="px-3 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-purple-500/15 transition-all no-underline whitespace-nowrap">
+                            Experience
+                        </a>
+
+                        <!-- My Journey (langsung, bukan dropdown) -->
+                        <a href="#journey"
+                            class="px-3 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-purple-500/15 transition-all no-underline whitespace-nowrap">
+                            Journey
+                        </a>
+
+                        <!-- Dropdown Portfolio (Skills, Projects, Certificates) - Dipindah ke kanan -->
                         <div class="relative career-dropdown-container py-1" @mouseenter="openCareerDropdown"
                             @mouseleave="closeCareerDropdown">
                             <button type="button" @click="toggleCareerDropdown"
                                 class="flex items-center gap-1 px-3 py-1.5 rounded-full transition-all whitespace-nowrap focus:outline-none cursor-pointer"
                                 :class="isCareerDropdownOpen ? 'text-white bg-purple-500/20' : 'text-slate-300 hover:text-white hover:bg-purple-500/15'">
-                                <span>Career</span>
+                                <span>More</span>
                                 <svg class="w-3.5 h-3.5 transition-transform duration-200"
                                     :class="{ 'rotate-180 text-purple-400': isCareerDropdownOpen }" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
@@ -72,63 +90,43 @@
                                 leave-from-class="opacity-100 translate-y-0 scale-100"
                                 leave-to-class="opacity-0 translate-y-1 scale-95">
                                 <div v-if="isCareerDropdownOpen"
-                                    class="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 z-50 w-48"
+                                    class="absolute top-full right-0 pt-2.5 z-50 w-48"
                                     @mouseenter="openCareerDropdown" @mouseleave="closeCareerDropdown">
                                     <div
                                         class="rounded-2xl bg-slate-950/95 backdrop-blur-2xl border border-purple-500/25 p-1.5 shadow-2xl shadow-purple-950/80 flex flex-col gap-1">
-                                        <a href="#education" @click="isCareerDropdownOpen = false"
+                                        <a href="#skills" @click="isCareerDropdownOpen = false"
                                             class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-300 hover:text-white hover:bg-purple-500/20 transition-all no-underline">
                                             <svg class="w-4 h-4 text-purple-400 shrink-0" fill="none"
                                                 viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M12 14l9-5-9-5-9 5 9 5z" />
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
                                             </svg>
-                                            <span>Education</span>
+                                            <span>Skills</span>
                                         </a>
 
-                                        <a href="#experience" @click="isCareerDropdownOpen = false"
+                                        <a href="#projects" @click="isCareerDropdownOpen = false"
                                             class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-300 hover:text-white hover:bg-purple-500/20 transition-all no-underline">
                                             <svg class="w-4 h-4 text-purple-400 shrink-0" fill="none"
                                                 viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                                             </svg>
-                                            <span>Experience</span>
+                                            <span>Projects</span>
                                         </a>
 
-                                        <a href="#journey" @click="isCareerDropdownOpen = false"
+                                        <a href="#certificates" @click="isCareerDropdownOpen = false"
                                             class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs text-slate-300 hover:text-white hover:bg-purple-500/20 transition-all no-underline">
                                             <svg class="w-4 h-4 text-purple-400 shrink-0" fill="none"
                                                 viewBox="0 0 24 24" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                                             </svg>
-                                            <span>My Journey</span>
+                                            <span>Certificates</span>
                                         </a>
                                     </div>
                                 </div>
                             </transition>
                         </div>
-
-                        <!-- Skills -->
-                        <a href="#skills"
-                            class="px-3 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-purple-500/15 transition-all no-underline whitespace-nowrap">
-                            Skills
-                        </a>
-
-                        <!-- Projects -->
-                        <a href="#projects"
-                            class="px-3 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-purple-500/15 transition-all no-underline whitespace-nowrap">
-                            Projects
-                        </a>
-
-                        <!-- Certificates -->
-                        <a href="#certificates"
-                            class="px-3 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-purple-500/15 transition-all no-underline whitespace-nowrap">
-                            Certificates
-                        </a>
                     </nav>
 
                     <!-- Contact CTA Button (Kanan) -->
