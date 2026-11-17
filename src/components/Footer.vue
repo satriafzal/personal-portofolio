@@ -1,5 +1,5 @@
 <template>
-    <footer class="pt-16 pb-8 relative z-20 border-t border-purple-500/10 bg-slate-950/40 backdrop-blur-md">
+    <footer class="pt-16 pb-28 md:pb-8 relative z-20 border-t border-purple-500/10 bg-slate-950/40 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
             <!-- Call To Action Section -->
