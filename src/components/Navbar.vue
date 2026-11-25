@@ -152,7 +152,12 @@
         <!-- ====================================================== -->
         <!-- MOBILE / TABLET FLOATING BOTTOM DOCK BAR (md:hidden)   -->
         <!-- ====================================================== -->
-        <div class="md:hidden fixed bottom-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none">
+        <div class="md:hidden fixed bottom-4 inset-x-0 z-50 flex justify-center px-4 pointer-events-none transition-all duration-300 ease-in-out"
+            :class="[
+                isMobileDockHidden && !isMobileDrawerOpen
+                    ? 'translate-y-28 opacity-0 pointer-events-none'
+                    : 'translate-y-0 opacity-100'
+            ]">
             <nav
                 class="pointer-events-auto w-full max-w-sm bg-slate-950/85 backdrop-blur-2xl border border-purple-500/25 rounded-2xl px-2 py-1.5 shadow-2xl shadow-purple-950/70 flex items-center justify-around">
                 <!-- Home -->
@@ -326,6 +331,7 @@ const isScrolled = ref(false)
 const isDesktopHovered = ref(false)
 const isCareerDropdownOpen = ref(false)
 const isMobileDrawerOpen = ref(false)
+const isMobileDockHidden = ref(false)
 
 let lastScrollY = 0
 let dropdownTimer = null
@@ -364,7 +370,9 @@ const toggleCareerDropdown = () => {
 
 const handleScroll = () => {
     const currentScrollY = window.scrollY || document.documentElement.scrollTop
+    const scrollDelta = currentScrollY - lastScrollY
 
+    // 1. Desktop Pill Logic
     if (currentScrollY > 60) {
         if (currentScrollY > lastScrollY && currentScrollY > 120) {
             isScrolled.value = true
@@ -374,6 +382,27 @@ const handleScroll = () => {
         }
     } else {
         isScrolled.value = false
+    }
+
+    // 2. Mobile Bottom Dock Logic (Smart Auto-Hide on Scroll)
+    const scrollHeight = document.documentElement.scrollHeight
+    const clientHeight = window.innerHeight || document.documentElement.clientHeight
+    const distanceFromBottom = scrollHeight - (currentScrollY + clientHeight)
+
+    if (isMobileDrawerOpen.value) {
+        isMobileDockHidden.value = false
+    } else if (currentScrollY < 50) {
+        // Dekat posisi paling atas -> selalu tampilkan dock
+        isMobileDockHidden.value = false
+    } else if (distanceFromBottom <= 120) {
+        // Mentok/mendekati footer -> sembunyikan agar icon sosmed dan copyright tidak terhalang sama sekali
+        isMobileDockHidden.value = true
+    } else if (scrollDelta > 8) {
+        // Scroll ke bawah -> sembunyikan dock
+        isMobileDockHidden.value = true
+    } else if (scrollDelta < -8) {
+        // Scroll ke atas -> munculkan kembali dock
+        isMobileDockHidden.value = false
     }
 
     lastScrollY = currentScrollY
